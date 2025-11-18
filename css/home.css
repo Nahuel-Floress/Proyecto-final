@@ -1,14 +1,20 @@
 body {
-    font-family: "Poppins", sans-serif;
+    font-family:"Minecraft", sans-serif;
     background-color: #121212;
     color: #fff;
 }
 
+@font-face {
+  font-family: 'Minecraft';
+  src: url('../fonts/Minecraft.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
 :root {
     --nav-h: 84px;
     --accent: #71c72d;
     --muted: #cfcfcf;
-    --page-max-width: 1780px;
+    --page-max-width: 1890px;
 }
 
 a {
@@ -287,7 +293,7 @@ a {
     left: 50%;
     transform: translateX(-50%);
     width: 100%;
-    max-width: 1640px;
+    max-width: 1780px;
     background: #181818;
     border-top: 1px solid rgba(255, 255, 255, 0.12);
     border-bottom-left-radius: 12px;
