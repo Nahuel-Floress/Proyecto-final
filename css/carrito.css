@@ -4,16 +4,16 @@ body {
     color: #fff;
 }
 
+a {
+    text-decoration: none;
+    color: var(--accent)
+}
+
 :root {
     --nav-h: 84px;
     --accent: #71c72d;
     --muted: #cfcfcf;
     --page-max-width: 1780px;
-}
-
-a {
-    text-decoration: none;
-    color: var(--accent)
 }
 
 .site-navbar {
@@ -560,81 +560,6 @@ a {
     color: #cfcfcf;
     text-decoration: none;
     font-size: 13px;
-}
-
-.dlc-section {
-    background-color: #0f0f0f;
-    padding-bottom: 30px;
-    margin-top: 80px;
-}
-
-.dlc-banner {
-    position: relative;
-    overflow: hidden;
-    margin-top: 60px;
-}
-
-.dlc-banner img {
-    width: 100%;
-    height: 82vh;
-    object-fit: cover;
-}
-
-.dlc-info {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    background-color: #0f0f0f;
-    padding: 40px;
-    max-width: 450px;
-    transform: translateY(40px);
-}
-
-.dlc-info h2 {
-    font-size: 1.8rem;
-    margin-bottom: 15px;
-}
-
-.dlc-info p {
-    font-size: 0.95rem;
-    margin-bottom: 20px;
-}
-
-.btn-verde {
-    background-color: #3c8527;
-    border: none;
-    padding: 10px 22px;
-    font-weight: 700;
-    border-radius: 5px;
-    cursor: pointer;
-    color: white;
-    transition: background-color 0.3s ease;
-}
-
-.btn-verde:hover {
-    background-color: #45a32f;
-}
-
-.dlc-galeria {
-    display: flex;
-    justify-content: center;
-    gap: 15px;
-    margin-top: 20px;
-    flex-wrap: wrap;
-}
-
-.dlc-galeria img {
-    width: 210px;
-    height: 120px;
-    object-fit: cover;
-    border: 2px solid #222;
-    border-radius: 5px;
-    transition: transform 0.3s ease, border 0.3s ease;
-    cursor: pointer;
-}
-
-.dlc-galeria img.activa {
-    border: 2px solid #3c8527;
 }
 
 .juegos {

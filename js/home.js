@@ -42,6 +42,8 @@ galeriaImgs.forEach((img, index) => {
   });
 });
 
+
+
 const originalMenus = new Map();
 
 document.querySelectorAll(".mega-menu").forEach(menu => {
@@ -175,6 +177,7 @@ function aplicarNavDataYGuardar(nombre, mega) {
 
   const center = mega.querySelector(".mega-col.center");
   const right = mega.querySelector(".mega-col.right");
+  const list = right.querySelector(".purchase-list");
 
   let centerHTML = "";
   for (let i = 0; i < 3; i++) {
@@ -185,23 +188,25 @@ function aplicarNavDataYGuardar(nombre, mega) {
         <p>${escapeHtml(data.texts[i])}</p>
       </article>`;
   }
+  center.innerHTML = centerHTML;
 
-  let rightHTML = `
-    <h5 style="color:${data.headingRightColor}; margin:0 0 8px 0;">
-      ${escapeHtml(data.headingRightText)}
-    </h5>
-    <ul class="purchase-list">`;
+  let rightListHTML = `
+    <li>
+      <h5 style="color:${data.headingRightColor}; margin:0 0 8px 0;">
+        ${escapeHtml(data.headingRightText)}
+      </h5>
+    </li>`;
 
   for (let i = 0; i < 3; i++) {
-    rightHTML += `<li><a>${escapeHtml(data.rightTexts[i])}</a></li>`;
+    rightListHTML += `<li><a>${escapeHtml(data.rightTexts[i])}</a></li>`;
   }
 
-  rightHTML += `</ul>`;
+  list.innerHTML = rightListHTML;
 
-  center.innerHTML = centerHTML;
-  right.innerHTML = rightHTML;
-
-  estadoAplicado.set(nombre, { cards: centerHTML, right: rightHTML });
+  estadoAplicado.set(nombre, {
+    cards: centerHTML,
+    right: right.innerHTML
+  });
 }
 
 function restaurarOriginal(mega) {
@@ -242,7 +247,6 @@ document.querySelectorAll(".mega-col.left .games-list").forEach(lista => {
   });
 });
 
-
 document.querySelectorAll(".mega-col.right a").forEach(a => {
   a.style.cursor = "pointer";
 });
@@ -260,7 +264,6 @@ function activarColorNav(toggle, activo) {
   if (activo) toggle.classList.add("nav-abierto");
   else toggle.classList.remove("nav-abierto");
 }
-
 
 (function () {
   const dropdowns = document.querySelectorAll(".menu-principal .dropdown");
@@ -352,3 +355,210 @@ function escapeHtml(str) {
     "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
   })[m]);
 }
+
+
+
+const cuentaBtn = document.querySelector(".icon-btn.cuenta");
+const arrowCuenta = document.querySelector(".arrow-cuenta");
+const dropCuenta = document.getElementById("cuentaDropdown");
+let cuentaAbierta = false;
+
+function cerrarCuenta() {
+  cuentaAbierta = false;
+  dropCuenta.style.display = "none";
+  arrowCuenta.classList.remove("rotada");
+  cuentaBtn.classList.remove("cuenta-activa");
+}
+
+function abrirCuenta() {
+  cuentaAbierta = true;
+  dropCuenta.style.display = "flex";
+  arrowCuenta.classList.add("rotada");
+  cuentaBtn.classList.add("cuenta-activa");
+}
+
+const btnSearch = document.getElementById("btnSearch");
+const megaSearch = document.getElementById("megaSearch");
+const searchInput = document.getElementById("searchInput");
+const searchBar = document.querySelector(".search-bar");
+const clearSearch = document.getElementById("clearSearch");
+const arrowLupa = document.querySelector(".arrow-lupa");
+const iconLupa = document.querySelector(".icon-lupa");
+const searchLabel = document.querySelector(".search-bar label");
+let searchOpen = false;
+
+let bloqueo = false;
+function block(e) { if (bloqueo) e.preventDefault(); }
+function key(e) {
+  if (bloqueo && ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End", " "].includes(e.key))
+    e.preventDefault();
+}
+function activarBloqueo() {
+  if (bloqueo) return;
+  bloqueo = true;
+  window.addEventListener("wheel", block, { passive: false });
+  window.addEventListener("touchmove", block, { passive: false });
+  window.addEventListener("keydown", key, { passive: false });
+}
+function desactivarBloqueo() {
+  bloqueo = false;
+  window.removeEventListener("wheel", block);
+  window.removeEventListener("touchmove", block);
+  window.removeEventListener("keydown", key);
+}
+
+function cerrarBusqueda() {
+  searchOpen = false;
+  megaSearch.classList.remove("show");
+  btnSearch.classList.remove("nav-abierto");
+  arrowLupa.classList.remove("rotada");
+  iconLupa?.classList.remove("activa");
+  searchBar.classList.remove("focus");
+  searchLabel?.classList.remove("focus");
+  btnSearch.classList.remove("search-activa");
+  iconLupa?.classList.remove("activa");
+
+  desactivarBloqueo();
+}
+
+function abrirBusqueda() {
+  searchOpen = true;
+
+  megaSearch.classList.add("show");
+  btnSearch.classList.add("nav-abierto");
+  arrowLupa.classList.add("rotada");
+  iconLupa?.classList.add("activa");
+  btnSearch.classList.add("search-activa");
+  iconLupa?.classList.add("activa");
+
+
+  searchInput.focus();
+  activarBloqueo();
+}
+
+const dropdowns = document.querySelectorAll("[dropdowns]");
+let megaAbierto = null;
+
+function cerrarMenusNav() {
+  dropdowns.forEach(drop => {
+    drop.classList.remove("open");
+
+    const mega = drop.querySelector(".mega-menu");
+    const toggle = drop.querySelector(".toggle");
+    const arrow = drop.querySelector(".arrow");
+
+    if (mega) mega.classList.remove("show");
+    if (toggle) toggle.classList.remove("nav-abierto");
+    if (arrow) arrow.classList.remove("rotada");
+  });
+
+  megaAbierto = null;
+}
+
+function abrirMegaMenu(drop) {
+  cerrarMenusNav();
+  drop.classList.add("open");
+  drop.querySelector(".mega-menu")?.classList.add("show");
+  drop.querySelector(".toggle")?.classList.add("nav-abierto");
+  drop.querySelector(".arrow")?.classList.add("rotada");
+  megaAbierto = drop;
+}
+
+
+function irAMenuBusqueda() {
+  cerrarCuenta();
+  cerrarMenusNav();
+  abrirBusqueda();
+}
+
+function irAMenuCuenta() {
+  cerrarBusqueda();
+  cerrarMenusNav();
+  abrirCuenta();
+}
+
+function irAMenuMegaMenu(drop) {
+  cerrarBusqueda();
+  cerrarCuenta();
+  abrirMegaMenu(drop);
+}
+
+cuentaBtn.addEventListener("click", e => {
+  e.stopPropagation();
+  if (!cuentaAbierta) irAMenuCuenta();
+  else cerrarCuenta();
+});
+
+dropCuenta.addEventListener("click", e => e.stopPropagation());
+
+
+btnSearch.addEventListener("click", e => {
+  e.stopPropagation();
+
+  if (!searchOpen) irAMenuBusqueda();
+  else cerrarBusqueda();
+});
+
+megaSearch.addEventListener("click", e => e.stopPropagation());
+
+searchInput.addEventListener("focus", () => {
+  searchBar.classList.add("focus");
+  searchLabel?.classList.add("focus");  
+});
+
+searchInput.addEventListener("blur", () => {
+  if (!searchInput.value.trim()) {
+    searchBar.classList.remove("focus");
+    searchLabel?.classList.remove("focus");
+  }
+});
+
+searchInput.addEventListener("input", () => {
+  if (searchInput.value.trim()) {
+    clearSearch.classList.add("visible");
+    searchBar.classList.add("focus");
+    searchLabel?.classList.add("focus");    
+  } else {
+    clearSearch.classList.remove("visible");
+  }
+});
+
+clearSearch.addEventListener("click", () => {
+  searchInput.value = "";
+  clearSearch.classList.remove("visible");
+  searchBar.classList.remove("focus");
+  searchLabel?.classList.remove("focus");
+  searchInput.focus();
+});
+
+
+dropdowns.forEach(drop => {
+  const toggle = drop.querySelector(".toggle");
+  const mega = drop.querySelector(".mega-menu");
+
+  mega?.addEventListener("click", e => e.stopPropagation());
+
+  toggle.addEventListener("click", e => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    const abierto = drop.classList.contains("open");
+
+    if (!abierto) irAMenuMegaMenu(drop);
+    else cerrarMenusNav();
+  });
+});
+
+document.addEventListener("click", () => {
+  cerrarBusqueda();
+  cerrarCuenta();
+  cerrarMenusNav();
+});
+
+document.addEventListener("keydown", e => {
+  if (e.key === "Escape") {
+    cerrarBusqueda();
+    cerrarCuenta();
+    cerrarMenusNav();
+  }
+});
