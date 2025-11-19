@@ -301,6 +301,19 @@ a {
     border-bottom-color: #7ee000;
 }
 
+
+@keyframes fadeDown {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translate(-50%, 0);
+    }
+}
+
 .mega-search {
     position: absolute;
     top: var(--nav-h);
