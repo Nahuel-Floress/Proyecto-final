@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -285,7 +286,7 @@
 
         <div class="grid-juegos">
 
-            <div class="card">
+            <div class="card" data-juego="minecraft">
                 <img src="img/minecraft-img-card1.jpg" alt="Tarjeta1">
                 <h3>Minecraft</h3>
                 <p>Sandbox de supervivencia, aventura<br>Un solo jugador + multijugador</p>
@@ -300,7 +301,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-juego="dungeons">
                 <img src="img/minecraft-img-card2.jpg" alt="Tarjeta2">
                 <h3>Minecraft Dungeons</h3>
                 <p>Exploración de mazmorras, RPG de acción<br>Un solo jugador + multijugador</p>
@@ -313,7 +314,7 @@
                 </div>
             </div>
 
-            <div class="card">
+            <div class="card" data-juego="legends">
                 <img src="img/minecraft-img-card3.jpg" alt="Tarjeta3">
                 <h3>Minecraft Legends</h3>
                 <p>RPG de acción, estrategia<br>Un solo jugador + multijugador</p>
@@ -325,8 +326,8 @@
                 </div>
             </div>
 
-            <div class="card">
-                <img src="img/minecraft-img-card4.jpg" alt="Tarjeta4">
+            <div class="card" data-juego="education">
+                <img src="img/minecraft-triple-bundle.jpg" alt="Tarjeta4">
                 <h3>Minecraft Education</h3>
                 <p>Educación, sandbox de supervivencia<br>Un solo jugador + multijugador</p>
                 <span class="separator"></span>
@@ -338,6 +339,21 @@
             </div>
 
         </div>
+    </section>
+
+    <section id="juego-detalle" class="detalle hidden">
+        <button id="cerrar-detalle">X</button>
+
+        <img id="detalle-logo" alt="Logo juego">
+        <h2 id="detalle-titulo"></h2>
+
+        <div id="detalle-texto">
+            <i class="bi bi-arrow-down-left"></i>
+            <span>Mac y Linux solo son compatibles con Java Edition.</span>
+        </div>
+
+        <h3>Selecciona tu plataforma</h3>
+        <div id="detalle-plataformas" class="plataformas"></div>
     </section>
 
     <footer class="footer-minecraft">
