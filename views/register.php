@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft - Registro</title>
-    <link rel="icon" type="image" href="img/icono.png">
-    <link rel="stylesheet" href="css/inicioSesion.css">
+    <title>VendeYa - Registro</title>
+    <link rel="shortcut icon" href="../img/IconoSinBorde.png" type="image/x-icon">
+    <link rel="stylesheet" href="../css/login.css">
 
     <style>
         .mensaje-error {
@@ -36,6 +36,7 @@
     <h1 class="login__title">Crear tu cuenta</h1>
 
     <div class="login__content">
+        <!-- Email -->
         <div class="login__box">
             <i class="bx bx-envelope"></i>
             <div class="login__box-input">
@@ -44,6 +45,7 @@
             </div>
         </div>
 
+        <!-- Username -->
         <div class="login__box">
             <i class="bx bx-user"></i>
             <div class="login__box-input">
@@ -52,6 +54,7 @@
             </div>
         </div>
 
+        <!-- Password -->
         <div class="login__box">
             <i class="ri-lock-2-line login__icon"></i>
             <div class="login__box-input">
@@ -60,6 +63,7 @@
             </div>
         </div>
 
+        <!-- Confirm Password -->
         <div class="login__box">
             <i class="ri-lock-2-line login__icon"></i>
             <div class="login__box-input">
@@ -74,7 +78,7 @@
     <button type="submit" class="login__button">Continuar</button>
 
     <p class="login__register">
-        ¿Ya tienes una cuenta? <a href="inicioSesion.html">Inicia sesión</a>
+        ¿Ya tienes una cuenta? <a href="login.php">Inicia sesión</a>
     </p>
 </form>
 

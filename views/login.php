@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft</title>
-     <link rel="icon" type="image" href="img/icono.png">
-    <link rel="stylesheet" href="css/inicioSesion.css">
+    <link rel="shortcut icon" href="../img/icono.png" type="image/x-icon" >
+    <link rel="stylesheet" href="../css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
     .mensaje-error {
@@ -25,7 +25,7 @@
 </head>
  
 <body>
-<form action="home.html" method="POST" class="login__form">
+<form action="../loginRegis.php" method="POST" class="login__form">
     <h1 class="login__title">Inicio de sesión</h1>
 
     <div class="login__content">
@@ -38,6 +38,7 @@
                     required 
                     class="login__input" 
                     placeholder=" "
+                    value="<?php if(isset($_GET['usuario'])) echo htmlspecialchars($_GET['usuario']); ?>"
                 >
                 <label for="" class="login__label">Gmail</label>
             </div>
@@ -52,6 +53,7 @@
                     required 
                     class="login__input" 
                     placeholder=" "
+                    value="<?php if(isset($_GET['contraseña'])) echo htmlspecialchars($_GET['contraseña']); ?>"
                 >
                 <label for="" class="login__label">Contraseña</label>
                 <i class="ri-eye-off-line login__eye"></i>
@@ -75,7 +77,7 @@
     <button type="submit" name="boton" class="login__button">Iniciar sesión</button>
 
     <p class="login__register">
-        No tienes una cuenta? <a href="registro.html">Registrate</a>
+        No tienes una cuenta? <a href="register.php">Registrate</a>
     </p>
 </form>
 
