@@ -59,6 +59,7 @@ a {
 .dlc-info h2 {
     font-size: 1.8rem;
     margin-bottom: 15px;
+    color: white;
 }
 
 .dlc-info p {
@@ -133,7 +134,9 @@ a {
     overflow: hidden;
     transition: transform 0.25s ease;
     text-align: left;
+    background-color: #0f0f0f;
     padding-bottom: 18px;
+    color: white;
 }
 
 .card:hover {
@@ -150,6 +153,7 @@ a {
 .card h3 {
     font-size: 1.25rem;
     font-weight: 700;
+    color: white;
 }
 
 .card .separator {

@@ -49,7 +49,7 @@
             <div class="card">
                 <img src="img/minecraft-img-card2.jpg" alt="Tarjeta2">
                 <h3>Minecraft Dungeons</h3>
-                <p>Exploración de mazmorras, RPG de acción<br>Un solo jugador + multijugador</p>
+                <p>Exploración de mazmorras,RPG<br>Un solo jugador + multijugador</p>
                 <span class="separator"></span>
                 <div class="icons">
                     <i class="bi bi-windows"></i>

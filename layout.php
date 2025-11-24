@@ -40,13 +40,13 @@
   <main>
     <?php
     $section = (isset($section)) ? $section : 'home';
-    require_once $section . '.html';
+    require_once $section . '.php';
     ?>
   </main>
 
   <!-- incluimos el footer -->
 
-  <?php include 'views/footer.html'; ?>
+  <?php include 'views/footer.php'; ?>
   </footer>
 
 

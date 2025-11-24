@@ -249,6 +249,9 @@
     border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
+a{
+    color: #7ee000;
+}
 .cuenta-dropdown li:last-child {
     border-bottom: none;
 }
@@ -550,4 +553,13 @@
     color: #cfcfcf;
     text-decoration: none;
     font-size: 13px;
+}
+
+.card {
+    overflow: hidden;
+    transition: transform 0.25s ease;
+    text-align: left;
+    background-color: #0f0f0f;
+    padding-bottom: 18px;
+    color: white;
 }
