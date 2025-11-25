@@ -37,13 +37,13 @@
                             </article>
 
                             <article class="card">
-                                <img src="img/minecraft-img-card2.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/marketplace/Global-Header_Image-Tile_Marketplace-With-Logo_570x321.jpg" alt="">
                                 <h4>Marketplace</h4>
                                 <p>Mantén tu experiencia con contenido nuevo y divertido.</p>
                             </article>
 
                             <article class="card">
-                                <img src="img/minecraft-img-card4.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/realms/Global-Header_Image-Tile_Realms-Plus_321x321.jpg" alt="">
                                 <h4>Minecraft Realms</h4>
                                 <p>Juega con tus amigos en tu propio servidor personal.</p>
                             </article>
@@ -125,17 +125,17 @@
 
                         <div class="mega-col center">
                             <article class="card">
-                                <img src="img/minecraft-img-card3.jpg" alt="">
+                                <img src="img/not-nav.jpg" alt="">
                                 <h4>Actualización</h4>
                                 <p>Novedades y notas de parche.</p>
                             </article>
                             <article class="card">
-                                <img src="img/minecraft-img-card1.jpg" alt="">
+                                <img src="img/not-nav2.jpg" alt="">
                                 <h4>Eventos</h4>
                                 <p>Eventos y promociones en curso.</p>
                             </article>
                             <article class="card">
-                                <img src="img/minecraft-img-card2.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/community/events/cy2025/sandstorm/MinecraftMovie_TT_300x300.jpg" alt="">
                                 <h4>Comunidad</h4>
                                 <p>Historias y contenido comunitario.</p>
                             </article>
@@ -168,17 +168,17 @@
 
                         <div class="mega-col center">
                             <article class="card">
-                                <img src="img/minecraft-img-card4.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Global-Header_Image-Tile_Help-Center_570x321.jpg" alt="">
                                 <h4>Guía de instalación</h4>
                                 <p>Paso a paso para comenzar a jugar.</p>
                             </article>
                             <article class="card">
-                                <img src="img/minecraft-img-card1.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Global-Header_Image-Tile_%20Tips-For-Beginners%20_321x321_02.png" alt="">
                                 <h4>Soporte</h4>
                                 <p>Contacta con el servicio técnico.</p>
                             </article>
                             <article class="card">
-                                <img src="img/minecraft-img-card2.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/game-characters/Global-Header_Image-Tile_Report-a-Bug_321x321_02.jpg" alt="">
                                 <h4>Compatibilidad</h4>
                                 <p>Requerimientos por plataforma.</p>
                             </article>
