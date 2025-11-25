@@ -219,7 +219,7 @@
                     <ul>
                         <li><a href="../Proyecto-Final/views/login.php" class="iniciar-sesion">INICIAR SESIÓN</a></li>
                         <li>CREAR CUENTA</li>
-                        <li>DESCARGAR</li>
+                        <a href="perfilUsuario.php"><li>DESCARGAR</li></a>
                         <li>CANJEAR</li>
                     </ul>
                 </div>

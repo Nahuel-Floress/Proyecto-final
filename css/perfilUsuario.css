@@ -1,0 +1,597 @@
+body {
+  background: radial-gradient(circle at top, #0c0c19, #050510);
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-image: url('../img/fondo/d.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.nombre-editable::placeholder,
+.bio-editable::placeholder {
+  color: #000;
+  opacity: 0.8;
+  font-style: italic;
+  font-weight: 500;
+ }
+
+
+.perfil-dashboard {
+  width: 95%;
+  max-width: 1300px;
+  background: rgba(20, 20, 35, 0.95);
+  margin: 100px auto;
+  border-radius: 25px;
+  box-shadow: 0 0 60px rgba(126, 92, 242, 0.4);
+  border: 1px solid rgba(126, 92, 242, 0.2);
+  padding: 40px 40px 70px;
+  overflow: hidden;
+  position: relative;
+}
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  margin-bottom: 60px;
+}
+
+.perfil-avatar {
+  flex-shrink: 0;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #7e5cf2;
+  box-shadow: 0 0 40px rgba(126, 92, 242, 0.8);
+}
+
+.perfil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfil-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 60px;
+}
+
+.nombre-editable {
+  font-size: 32px;
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
+  padding: 8px 14px;
+  border-radius: 12px;
+  background: linear-gradient(180deg, rgba(158,131,255,0.35), rgba(126,92,242,0.25));
+  border: 2px solid rgba(158,131,255,0.45);
+  box-shadow: inset 0 0 12px rgba(158,131,255,0.3);
+  width: 80%;
+  font-weight: 600;
+  text-transform: none;
+  text-align: left;
+  outline: none;
+  transition: 0.3s;
+  display: block;
+}
+
+.nombre-editable:focus {
+  background: rgba(158,131,255,0.75);
+  box-shadow: 0 0 22px rgba(158,131,255,0.7);
+}
+
+.perfil-info .ubicacion {
+  color: #ccc;
+  font-size: 16px;
+  margin: 6px 0 15px;
+}
+
+.bio-editable {
+  width: 90%;
+  max-width: 950px;
+  min-height: 130px;
+  background: linear-gradient(180deg, rgba(158,131,255,0.35), rgba(126,92,242,0.25));
+  border: 2px solid rgba(158,131,255,0.45);
+  border-radius: 14px;
+  color: #1a1a1a;
+  font-size: 15px;
+  padding: 14px 18px;
+  line-height: 1.6;
+  resize: none;
+  display: block;
+  box-shadow: inset 0 0 15px rgba(158,131,255,0.3);
+  transition: 0.3s;
+  font-weight: 500;
+  margin-bottom: 25px;
+}
+
+.bio-editable:focus {
+  background: rgba(158,131,255,0.75);
+  outline: none;
+  box-shadow: 0 0 22px rgba(158,131,255,0.7);
+}
+
+.perfil-secciones {
+  float: left;
+  width: 25%;
+  background: rgba(30, 30, 50, 0.6);
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: inset 0 0 15px rgba(126,92,242,0.2);
+  margin-top: 10px;
+  min-height: 320px;
+}
+
+.perfil-secciones ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.perfil-secciones li {
+  margin: 10px 0;
+}
+
+.perfil-secciones a {
+  color: #ccc;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.perfil-secciones a:hover {
+  color: #b18aff;
+  text-shadow: 0 0 5px #b18aff;
+}
+
+.perfil-juegos {
+  float: right;
+  width: 70%;
+  margin-top: 10px;
+}
+
+.perfil-juegos h2 {
+  font-size: 22px;
+  color: #b18aff;
+  margin-bottom: 15px;
+}
+
+.juego {
+  background: rgba(40, 40, 70, 0.5);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  height: 80px;
+  position: relative;
+  transition: 0.3s;
+}
+
+.juego:hover {
+  box-shadow: 0 0 20px rgba(158, 131, 255, 0.3);
+  transform: scale(1.02);
+}
+
+.juego img {
+  width: 110px;
+  height: 80px;
+  object-fit: cover;
+  float: left;
+}
+
+.info-juego {
+  margin-left: 130px;
+  padding-top: 10px;
+}
+
+.info-juego h3 {
+  margin: 0;
+  font-size: 15px;
+  color: #fff;
+}
+
+.info-juego p {
+  margin: 5px 0 0;
+  color: #bbb;
+  font-size: 13px;
+}
+
+.btn-logout {
+  display: block;
+  width: 100%;
+  background: linear-gradient(90deg, #7e5cf2, #9e83ff);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 10px 0;
+  margin-top: 20px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn-logout:hover {
+  box-shadow: 0 0 15px rgba(158,131,255,0.6);
+}
+
+.perfil-avatar-container {
+  text-align: center;
+}
+
+.perfil-avatar {
+  margin: 0 auto;
+  width: 280px;
+  height: 280px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 6px solid #7e5cf2;
+  box-shadow: 0 0 40px rgba(126, 92, 242, 0.8);
+}
+
+.perfil-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.perfil-avatar-botones {
+  margin-top: 15px;
+}
+
+.btn-cambiar-foto,
+.btn-restaurar-foto {
+  display: inline-block;
+  margin: 5px;
+  background: linear-gradient(90deg, #7e5cf2, #9e83ff);
+  border: none;
+  border-radius: 10px;
+  color: #fff;
+  padding: 8px 16px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+  font-size: 14px;
+}
+
+.btn-cambiar-foto:hover,
+.btn-restaurar-foto:hover {
+  box-shadow: 0 0 15px rgba(158,131,255,0.6);
+  transform: scale(1.05);
+}
+
+.campo-estilo {
+  width: 90%;
+  max-width: 950px;
+  background: linear-gradient(180deg, rgba(158,131,255,0.35), rgba(126,92,242,0.25));
+  border: 2px solid rgba(158,131,255,0.45);
+  border-radius: 14px;
+  color: #1a1a1a;
+  font-size: 15px;
+  padding: 14px 18px;
+  line-height: 1.6;
+  box-shadow: inset 0 0 15px rgba(158,131,255,0.3);
+  transition: 0.3s;
+  font-weight: 500;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+.perfil-juegos {
+  transition: opacity 0.3s ease;
+}
+
+.perfil-juegos label input[type="checkbox"] {
+  accent-color: #a57aff;
+  transform: scale(1.2);
+}
+
+.campo-estilo:focus {
+  background: rgba(158,131,255,0.75);
+  box-shadow: 0 0 22px rgba(158,131,255,0.7);
+}
+
+.campo-estilo::placeholder {
+  color: #000;
+  opacity: 0.8;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.btn-guardar {
+  background: #a57aff;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  padding: 10px 18px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 15px;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.btn-guardar:hover {
+  background: #8f61ff;
+  box-shadow: 0 0 15px rgba(158,131,255,0.6);
+}
+@media (max-width: 1024px) {
+  .perfil-dashboard {
+    width: 95%;
+    margin: 50px auto;
+    padding: 25px 20px 50px;
+    border-radius: 20px;
+  }
+
+  .perfil-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 25px;
+    margin-bottom: 40px;
+  }
+
+  .perfil-avatar {
+    width: 180px;
+    height: 180px;
+    border-width: 5px;
+  }
+
+  .perfil-info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 10px;
+  }
+
+  .nombre-editable {
+    width: 100%;
+    max-width: 350px;
+    font-size: 22px;
+    text-align: center;
+  }
+
+  .perfil-info .ubicacion {
+    font-size: 14px;
+  }
+
+  .bio-editable {
+    width: 100%;
+    font-size: 14px;
+    min-height: 100px;
+    text-align: left;
+  }
+
+  .perfil-avatar-botones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+
+  .btn-cambiar-foto,
+  .btn-restaurar-foto {
+    flex: 1;
+    min-width: 130px;
+    font-size: 14px;
+    padding: 10px 0;
+    border-radius: 10px;
+    text-align: center;
+  }
+
+  .btn-logout {
+    display: block;
+    width: 70%;
+    margin: 30px auto 0;
+    padding: 12px 0;
+    font-size: 16px;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .perfil-secciones,
+  .perfil-juegos {
+    width: 100%;
+    margin-top: 25px;
+  }
+
+  .perfil-secciones {
+    background: rgba(25, 25, 40, 0.7);
+    border-radius: 16px;
+    text-align: center;
+    padding: 20px 10px;
+  }
+
+  .perfil-secciones ul {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .perfil-juegos {
+    background: rgba(25, 25, 45, 0.6);
+    border-radius: 16px;
+    padding: 20px;
+  }
+
+  .perfil-juegos h2 {
+    font-size: 19px;
+    color: #b18aff;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+
+  .juego {
+    display: flex;
+    align-items: center;
+    background: rgba(45, 45, 70, 0.55);
+    border-radius: 12px;
+    padding: 10px 15px;
+    margin-bottom: 15px;
+    transition: 0.3s;
+  }
+
+  .juego img {
+    width: 90px;
+    height: 90px;
+    border-radius: 10px;
+    object-fit: cover;
+    margin-right: 15px;
+    flex-shrink: 0;
+  }
+
+  .info-juego {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
+     margin-left: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .info-juego h3 {
+    font-size: 16px;
+    color: #fff;
+    margin: 0;
+    font-weight: 500;
+    text-align: left;
+  }
+
+  .info-juego p {
+    display: none;
+  }
+
+  .campo-estilo {
+    width: 100%;
+    font-size: 14px;
+    padding: 10px 14px;
+  }
+
+  .btn-guardar {
+    width: 90%;
+    font-size: 15px;
+    padding: 10px 0;
+    margin: 15px auto 0;
+    display: block;
+  }
+
+  body {
+    background-attachment: scroll;
+    background-size: cover;
+    background-position: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .perfil-dashboard {
+    padding: 20px 15px 40px;
+  }
+
+  .perfil-avatar {
+    width: 160px;
+    height: 160px;
+  }
+
+  .nombre-editable {
+    font-size: 20px;
+  }
+
+  .perfil-avatar-botones {
+    gap: 10px;
+  }
+
+  .btn-cambiar-foto,
+  .btn-restaurar-foto {
+    font-size: 13px;
+    min-width: 120px;
+  }
+
+  .juego {
+    padding: 8px 12px;
+  }
+
+  .juego img {
+    width: 75px;
+    height: 75px;
+    margin-right: 12px;
+  }
+
+  .info-juego {
+    align-items: flex-start;
+    text-align: left;
+     margin-left: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .info-juego h3 {
+    font-size: 14px;
+    text-align: left;
+  }
+
+  .btn-logout {
+    width: 80%;
+  }
+}
+
+@media (max-width: 400px) {
+  .perfil-dashboard {
+    padding: 15px 10px 35px;
+  }
+
+  .perfil-avatar {
+    width: 130px;
+    height: 130px;
+  }
+
+  .nombre-editable {
+    font-size: 18px;
+  }
+
+  .bio-editable {
+    font-size: 12.5px;
+  }
+
+  .perfil-avatar-botones {
+    gap: 8px;
+  }
+
+  .btn-cambiar-foto,
+  .btn-restaurar-foto {
+    font-size: 12.5px;
+    min-width: 100px;
+  }
+
+  .btn-logout {
+    width: 85%;
+    font-size: 14px;
+  }
+
+  .juego img {
+    width: 70px;
+    height: 70px;
+    margin-right: 10px;
+  }
+
+  .info-juego {
+    align-items: flex-start;
+    text-align: left;
+     margin-left: 0 !important;
+    padding-top: 0 !important;
+  }
+
+  .info-juego h3 {
+    font-size: 13px;
+    text-align: left;
+  }
+}
