@@ -246,6 +246,41 @@
 
 
             </button>
+
+            <div class="hamburger-container">
+                <button id="hamburgerBtn" class="hamburger-btn">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <aside id="hamburgerPanel" class="hamburger-panel">
+                    <div class="hamburger-header">
+                        <img src="img/logo2.png" alt="Logo" class="hamburger-logo">
+                        <button id="closeHamburger" class="close-hamburger">&times;</button>
+                    </div>
+
+                    <nav class="hamburger-links">
+                        <a href="#">Juegos</a>
+                        <a href="#">Tienda</a>
+                        <a href="#">Noticias</a>
+                        <a href="#">Soporte técnico</a>
+                    </nav>
+
+                    <hr>
+
+                    <div class="hamburger-account">
+                        <?php if (!$usuarioLogeado): ?>
+                            <a href="views/login.php" class="ham-login">Iniciar sesión</a>
+                            <a href="views/register.php" class="ham-create">Crear cuenta</a>
+                        <?php else: ?>
+                            <a href="perfilUsuario.php">Perfil</a>
+                            <a href="library.php">Biblioteca</a>
+                            <a href="#">Descargar</a>
+                        <?php endif; ?>
+                    </div>
+                </aside>
+            </div>
         </div>
 
         <div class="mega-search" id="megaSearch">
@@ -289,3 +324,5 @@
 
     </div>
 </header>
+
+<div id="hamburgerOverlay"></div>

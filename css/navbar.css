@@ -564,3 +564,212 @@ a {
     padding-bottom: 18px;
     color: white;
 }
+
+.hamburger-container {
+    display: none;
+    position: relative;
+    z-index: 1200;
+    margin-left: auto;
+    margin-right: 8px;
+}
+
+.hamburger-btn {
+    width: 38px;
+    height: 28px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    padding: 0;
+}
+
+.hamburger-btn span {
+    width: 100%;
+    height: 4px;
+    background: #c6c6c6;
+    display: block;
+    border-radius: 4px;
+    transition: none;
+}
+
+.hamburger-btn.active span:nth-child(1),
+.hamburger-btn.active span:nth-child(2),
+.hamburger-btn.active span:nth-child(3) {
+    transform: none;
+    opacity: 1;
+}
+
+.hamburger-panel {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 82%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.45);
+    backdrop-filter: blur(6px);
+    transform: translateX(-100%);
+    transition: transform 0.35s ease;
+    z-index: 1500;
+    padding: 28px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.hamburger-panel.open {
+    transform: translateX(0);
+}
+
+.hamburger-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.close-hamburger {
+    background: transparent;
+    border: none;
+    font-size: 32px;
+    cursor: pointer;
+    padding: 0;
+    color: white;
+    margin-right: 6px;
+}
+
+.hamburger-logo {
+    width: 120px;
+}
+
+.hamburger-links {
+    display: flex;
+    flex-direction: column;
+    margin-top: 28px;
+}
+
+.hamburger-links a {
+    padding: 14px 0;
+    font-size: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    transition: 0.2s;
+}
+
+.hamburger-links a:hover {
+    color: #3aa95e;
+}
+
+.hamburger-account {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.hamburger-account a {
+    padding: 14px 0;
+    font-size: 17px;
+    text-decoration: none;
+    color: #ffffff;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+    transition: 0.2s;
+}
+
+.hamburger-account a:hover {
+    color: #3aa95e;
+}
+
+#hamburgerOverlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(2px);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s ease;
+    z-index: 1400;
+}
+
+#hamburgerOverlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+@media (max-width: 1024px) {
+
+    .hamburger-container {
+        display: block;
+        margin-left: auto;
+        margin-right: 8px;
+    }
+
+    nav.menu-principal {
+        display: none !important;
+    }
+
+    .search,
+    .mega-search,
+    #btnSearch {
+        display: none !important;
+    }
+    
+    .cuenta,
+    .cuenta-text,
+    .icono-usuario {
+        display: none !important;
+    }
+
+    .container-nav {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+        padding: 0 12px;
+        width: 100%;
+    }
+
+    .logo img {
+        width: 135px !important;
+    }
+
+    .btn-compra {
+        padding: 7px 12px !important;
+        font-size: 13px !important;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .hamburger-panel {
+        width: 90%;
+    }
+
+    .container-nav {
+        gap: 10px;
+        padding: 0 10px;
+    }
+
+    .logo img {
+        width: 120px !important;
+    }
+
+    .hamburger-logo {
+        width: 130px;
+    }
+
+    .btn-compra {
+        padding: 5px 10px !important;
+        font-size: 12px !important;
+    }
+
+    .hamburger-btn {
+        transform: scale(0.9);
+    }
+}
+

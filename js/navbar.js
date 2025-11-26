@@ -508,3 +508,42 @@ document.addEventListener("keydown", e => {
     cerrarMenusNav();
   }
 });
+
+
+const btnHamburger = document.getElementById("hamburgerBtn");
+const panelHamburger = document.getElementById("hamburgerPanel");
+const closeHamburger = document.getElementById("closeHamburger");
+const overlayHamburger = document.getElementById("hamburgerOverlay");
+
+if (btnHamburger && panelHamburger && overlayHamburger) {
+
+    function abrirHamburguesa() {
+        panelHamburger.classList.add("open");
+        btnHamburger.classList.add("active");
+        overlayHamburger.classList.add("show");
+        document.body.style.overflow = "hidden";
+    }
+
+    function cerrarHamburguesa() {
+        panelHamburger.classList.remove("open");
+        btnHamburger.classList.remove("active");
+        overlayHamburger.classList.remove("show");
+        document.body.style.overflow = "";
+    }
+
+    btnHamburger.addEventListener("click", e => {
+        e.stopPropagation();
+        const abierta = panelHamburger.classList.contains("open");
+        if (!abierta) abrirHamburguesa();
+        else cerrarHamburguesa();
+    });
+
+    closeHamburger?.addEventListener("click", cerrarHamburguesa);
+    overlayHamburger.addEventListener("click", cerrarHamburguesa);
+    panelHamburger.addEventListener("click", e => e.stopPropagation());
+
+    document.addEventListener("keydown", e => {
+        if (e.key === "Escape") cerrarHamburguesa();
+    });
+}
+
