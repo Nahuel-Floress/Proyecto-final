@@ -1,0 +1,900 @@
+body.juego-m {
+    margin: 0;
+    padding: 0;
+    background-color: #121212;
+    font-family: "Minecraft", sans-serif;
+    color: #fff;
+}
+
+@font-face {
+    font-family: 'Minecraft';
+    src: url('../fonts/Minecraft.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent);
+}
+
+.link-pg {
+    color: white;
+}
+
+.iniciar-sesion {
+    color: white;
+}
+
+.iniciar-sesion:hover {
+    color: #7ee000;
+}
+
+.hero {
+    width: 100%;
+    height: 60vh;
+    background-image: url("https://education.minecraft.net/content/dam/education-edition/learning-experiences/MCEDU_HOAI_TFN_Homepage_Carousel_2315x1244.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: var(--nav-h);
+    text-align: center;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 0;
+}
+
+.hero h1 {
+    font-size: 65px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 30px;
+    z-index: 1;
+}
+
+.btn-mc {
+    background: #1E6EEA;
+    box-shadow: inset 0 -6px 0 #416baa, inset 0 6px 0 #6fa3f0;
+    color: white;
+    text-decoration: none;
+    padding: 15px 35px;
+    font-size: 22px;
+    font-weight: 800;
+    text-transform: uppercase;
+    border: 2px solid #ffffff55;
+    letter-spacing: .03em;
+    display: inline-flex;
+    gap: 1rem;
+    align-items: center;
+}
+
+.btn-mc::after {
+    content: "›";
+    font-size: 26px;
+    margin-left: 8px;
+}
+
+:root {
+    --mc-green: #71c72d;
+    --mc-dark-bg: #1a1a1a;
+    --mc-light-bg: #151515;
+    --mc-border-dark: #242424;
+    --mc-border-light: #3a3a3a;
+    --mc-text-main: #cfcfcf;
+    --mc-text-light: #fff;
+    --mc-arrow-color: #555;
+    --mc-arrow-diagonal-color: #444;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: var(--mc-text-light);
+    font-family: Arial, sans-serif;
+}
+
+.mc-contenedor {
+    max-width: 1300px;
+    margin: 80px auto;
+    padding: 0 20px;
+}
+
+.mc-titulo {
+    text-align: center;
+    font-size: 32px;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30px;
+    text-shadow: 2px 2px 0 #000;
+}
+
+.mc-tabs {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.mc-tab {
+    background: #161616;
+    border: 2px solid #292929;
+    padding: 12px 28px;
+    font-size: 18px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--mc-text-main);
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all .25s ease;
+    letter-spacing: 1px;
+}
+
+.mc-tab:hover {
+    color: var(--mc-text-light);
+    border-color: var(--mc-green);
+    box-shadow: 0 0 10px rgba(113, 199, 45, .25);
+}
+
+.mc-tab.active {
+    background: #1f1f1f;
+    border-color: var(--mc-green);
+    color: var(--mc-text-light);
+    box-shadow: 0 0 14px rgba(113, 199, 45, .55);
+}
+
+.mc-seccion {
+    display: none;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity .25s ease, transform .25s ease;
+}
+
+.mc-seccion.visible {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.mc-info {
+    text-align: center;
+    color: var(--mc-text-main);
+    font-size: 16px;
+    max-width: 900px;
+    margin: 0 auto 10px;
+    line-height: 1.55;
+}
+
+.mc-info-small {
+    text-align: center;
+    font-size: 14px;
+    color: #999;
+    max-width: 900px;
+    margin: 0 auto 40px;
+    display: block;
+}
+
+.mc-link {
+    color: var(--mc-green);
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+
+.mc-plataformas-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 15px 0;
+}
+
+#plataformas .mc-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+#plataformas .mc-plat-item,
+#plataformas .mc-plat-empty {
+    flex: 0 0 calc(33.333% - 14px);
+    min-height: 78px;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 18px;
+
+    padding: 0 15px;
+    position: relative;
+
+    border-top: 2px solid var(--mc-border-dark);
+    border-bottom: 2px solid var(--mc-border-dark);
+    background: none;
+
+    transition: background-color .20s ease;
+    cursor: pointer;
+}
+
+#plataformas .mc-plat-item:hover {
+    background-color: #111;
+}
+
+#plataformas .mc-plat-item i {
+    font-size: 26px;
+    color: white;
+}
+
+#plataformas .mc-plat-title {
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--mc-text-main);
+    text-transform: uppercase;
+}
+
+.mc-plat-empty {
+    visibility: hidden;
+    pointer-events: none;
+    border: none;
+}
+
+.mc-mini-arrow {
+    right: 10px;
+    top: 50%;
+    font-size: 10px;
+    transform: rotate(-40deg);
+    opacity: 0.6;
+    transition: 0.2s;
+}
+
+.mc-plat-item:hover .mc-mini-arrow {
+    opacity: 1;
+}
+
+.mc-special {
+    gap: 25px !important;
+}
+
+.mc-buy-btn {
+    margin-left: auto;
+    padding: 8px 14px;
+
+    border: 2px solid white;
+    background: transparent;
+    color: white;
+
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+
+    display: flex;
+    align-items: center;
+    gap: 6px;
+
+    transition: 0.2s ease-out;
+}
+
+.mc-special:hover .mc-buy-btn {
+    background: white;
+    color: black;
+}
+
+.mc-buy-btn i {
+    font-size: 14px;
+
+}
+
+.mc-special:hover .mc-buy-btn i {
+    color: black !important;
+}
+
+
+
+
+
+/* ------------------------------------------- */
+/*                  TABLAS                     */
+/* ------------------------------------------- */
+
+
+/* Título */
+.mc-tabla-title {
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: var(--mc-text-main);
+}
+
+/* TABLA BASE */
+.mc-tabla {
+    width: 100%;
+    max-width: 950px;
+    margin: auto;
+    border-collapse: collapse;
+    border-radius: 12px;
+    overflow: hidden;
+    table-layout: fixed;
+    background: #111;
+}
+
+/* CABECERA */
+.mc-tabla th {
+    background: #0d0d0d;
+    padding: 17px;
+    font-size: 17px;
+    font-weight: 700;
+    border-bottom: 2px solid #333;
+    text-transform: uppercase;
+}
+
+.mc-th-vacio {
+    background: #111 !important;
+}
+
+/* CELDAS GENERALES */
+.mc-tabla td {
+    padding: 16px 18px;
+    font-size: 15px;
+    color: var(--mc-text-main);
+    border-bottom: 1px solid #1e1e1e;
+    vertical-align: middle;
+}
+
+/* COLUMNA IZQUIERDA — características */
+.mc-caract-name {
+    background: #1a1a1a;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ======== NUEVO: Alternancia horizontal ======== */
+/* Empieza justo en la fila 2 (pantalla dividida), donde comienzan ✔ y ✖ */
+
+.mc-tabla tr:nth-child(3) td:nth-child(2),
+.mc-tabla tr:nth-child(3) td:nth-child(3),
+.mc-tabla tr:nth-child(5) td:nth-child(2),
+.mc-tabla tr:nth-child(5) td:nth-child(3),
+.mc-tabla tr:nth-child(7) td:nth-child(2),
+.mc-tabla tr:nth-child(7) td:nth-child(3),
+.mc-tabla tr:nth-child(9) td:nth-child(2),
+.mc-tabla tr:nth-child(9) td:nth-child(3),
+.mc-tabla tr:nth-child(11) td:nth-child(2),
+.mc-tabla tr:nth-child(11) td:nth-child(3),
+.mc-tabla tr:nth-child(13) td:nth-child(2),
+.mc-tabla tr:nth-child(13) td:nth-child(3),
+.mc-tabla tr:nth-child(15) td:nth-child(2),
+.mc-tabla tr:nth-child(15) td:nth-child(3),
+.mc-tabla tr:nth-child(17) td:nth-child(2),
+.mc-tabla tr:nth-child(17) td:nth-child(3) {
+    background: #0d0d0d !important;
+    /* negro */
+}
+
+.mc-tabla tr:nth-child(4) td:nth-child(2),
+.mc-tabla tr:nth-child(4) td:nth-child(3),
+.mc-tabla tr:nth-child(6) td:nth-child(2),
+.mc-tabla tr:nth-child(6) td:nth-child(3),
+.mc-tabla tr:nth-child(8) td:nth-child(2),
+.mc-tabla tr:nth-child(8) td:nth-child(3),
+.mc-tabla tr:nth-child(10) td:nth-child(2),
+.mc-tabla tr:nth-child(10) td:nth-child(3),
+.mc-tabla tr:nth-child(12) td:nth-child(2),
+.mc-tabla tr:nth-child(12) td:nth-child(3),
+.mc-tabla tr:nth-child(14) td:nth-child(2),
+.mc-tabla tr:nth-child(14) td:nth-child(3),
+.mc-tabla tr:nth-child(16) td:nth-child(2),
+.mc-tabla tr:nth-child(16) td:nth-child(3),
+.mc-tabla tr:nth-child(18) td:nth-child(2),
+.mc-tabla tr:nth-child(18) td:nth-child(3) {
+    background: #161616 !important;
+    /* gris oscuro */
+}
+
+/* =================================================== */
+
+/* El hover solo aplica sobre texto para no romper los colores de fondo */
+.mc-tabla tr:hover td {
+    background: #202020 !important;
+}
+
+/* Subinfo */
+.mc-sub-info {
+    font-size: 12px;
+    color: #999;
+    margin-left: 4px;
+}
+
+/* Descripciones */
+.mc-desc {
+    color: #d2d2d2;
+    line-height: 1.3em;
+}
+
+/* Iconos */
+.mc-icon-yes {
+    color: var(--mc-green);
+    font-size: 20px;
+}
+
+.mc-icon-no {
+    color: #666;
+    font-size: 20px;
+}
+
+/* ICONO DE INFO */
+.mc-info-icon {
+    border: 1px solid #555;
+    width: 18px;
+    height: 18px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+    color: #ccc;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 4px;
+}
+
+.mc-info-icon:hover {
+    border-color: #aaa;
+    color: #fff;
+}
+
+
+
+.minecraft-section {
+    padding-top: 40px;
+}
+
+.minecraft-title {
+    font-size: 48px;
+    font-weight: 900;
+    letter-spacing: 3px;
+    line-height: 1.1;
+}
+
+.minecraft-title span {
+    font-size: 52px;
+}
+
+.description {
+    width: 55%;
+    margin: 20px auto;
+    font-size: 16px;
+    line-height: 22px;
+    opacity: .9;
+    max-width: 800px;
+}
+
+.carousel-text-layout {
+    width: 85%;
+    margin: 50px auto;
+    display: flex;
+    justify-content: center;
+}
+
+.carousel-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+}
+
+.carousel-img {
+    width: 100%;
+    height: 540px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+.arrows-miniaturas-container {
+    position: absolute;
+    right: 0;
+    margin-top: 15px;
+    display: flex;
+    gap: 14px;
+}
+
+.arrow-miniaturas-btn {
+    background: transparent;
+    border: none;
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+}
+
+.arrow-miniaturas-btn .btn-arrow {
+    transition: border-color 0.15s ease, opacity 0.15s ease;
+}
+
+.arrow-miniaturas-btn:hover .btn-arrow {
+    border-color: #00ff00 !important;
+    opacity: 1 !important;
+}
+
+.arrow-miniaturas-btn .btn-arrow {
+    border-color: #ffffff !important;
+    opacity: .8 !important;
+}
+
+.subtitulo {
+    width: 100%;
+    max-width: 520px;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: left;
+    opacity: .9;
+    margin-top: 14px;
+}
+
+.thumbs-container {
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 20px;
+}
+
+.thumbs-track {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    transition: transform 0.35s ease;
+}
+
+.thumb {
+    height: 150px;
+    width: auto;
+    flex: 0 0 auto;
+    border-radius: 6px;
+    overflow: hidden;
+    cursor: pointer;
+    opacity: .7;
+    border: 3px solid transparent;
+    transition: .25s ease;
+    display: flex;
+}
+
+
+.thumb img {
+    height: 100%;
+    width: auto;
+    object-fit: cover;
+    display: block;
+}
+
+.thumb.active {
+    border-color: #00ff00;
+    opacity: 1;
+    box-shadow: 0 0 12px #00ff00;
+}
+
+/* Botones */
+.arrow-prev,
+.arrow-next {
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.active-btn {
+    filter: brightness(1.4);
+}
+
+
+.arrow-right-miniatura {
+    width: 25px;
+    height: 25px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(-45deg);
+    display: inline-block;
+}
+
+.arrow-left-miniatura {
+    width: 25px;
+    height: 25px;
+    border-right: 2px solid;
+    border-bottom: 2px solid;
+    transform: rotate(130deg);
+    display: inline-block;
+}
+
+
+
+
+
+@media (max-width: 900px) {
+    .carousel-img {
+        height: 420px;
+    }
+
+    .arrows-miniaturas-container {
+        bottom: -48px;
+        right: 0;
+    }
+
+    .subtitulo {
+        max-width: 100%;
+        font-size: 15px;
+    }
+}
+
+@media (max-width: 576px) {
+    .carousel-img {
+        height: 300px;
+    }
+
+    .arrows-miniaturas-container {
+        bottom: -42px;
+        right: 0;
+        gap: 10px;
+    }
+
+    .arrow-miniaturas-btn {
+        width: 36px;
+        height: 36px;
+    }
+
+    .arrow-miniaturas {
+        width: 14px;
+        height: 14px;
+        border-right-width: 2px;
+        border-bottom-width: 2px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 1200px) {
+
+    .hero h1 {
+        font-size: 50px;
+    }
+
+    .btn-mc {
+        padding: 12px 28px;
+        font-size: 18px;
+    }
+
+    .mc-contenedor {
+        margin-top: 60px;
+        padding: 0 15px;
+    }
+
+    .mc-plataformas-grid {
+        max-width: 100%;
+    }
+
+    #plataformas .mc-plat-item {
+        font-size: 15px;
+    }
+
+    .mc-tabla {
+        max-width: 100%;
+    }
+}
+
+
+/* ─────────────────────────────────────────────── */
+/*  RESPONSIVE – CELULARES GRANDES (≤992px)        */
+/* ─────────────────────────────────────────────── */
+@media (max-width: 992px) {
+
+    .hero {
+        height: 50vh;
+    }
+
+    .hero h1 {
+        font-size: 42px;
+        margin-bottom: 20px;
+    }
+
+    .btn-mc {
+        font-size: 18px;
+        padding: 12px 25px;
+    }
+
+    .mc-tabs {
+        flex-wrap: wrap;
+        gap: 8px;
+    }
+
+    .mc-tab {
+        font-size: 16px;
+        padding: 10px 20px;
+    }
+
+    #plataformas .mc-row {
+        flex-wrap: wrap;
+    }
+
+    #plataformas .mc-plat-item {
+        flex-basis: 50%;
+        max-width: 50%;
+        height: 80px;
+    }
+
+    #plataformas .mc-plat-main {
+        height: auto;
+        flex-direction: column;
+        padding: 0;
+    }
+
+    #plataformas .mc-plat-btn {
+        width: 100%;
+        height: 60px;
+        border-left: none;
+        border-top: 2px solid var(--mc-border-dark);
+    }
+
+    .mc-tabla {
+        font-size: 14px;
+    }
+
+    .mc-tabla th,
+    .mc-tabla td {
+        padding: 10px;
+    }
+}
+
+
+/* ─────────────────────────────────────────────── */
+/*  RESPONSIVE – CELULARES ESTÁNDAR (≤768px)       */
+/* ─────────────────────────────────────────────── */
+@media (max-width: 768px) {
+
+    .hero {
+        height: 45vh;
+        padding: 20px;
+    }
+
+    .hero h1 {
+        font-size: 36px;
+        letter-spacing: 1px;
+    }
+
+    .btn-mc {
+        padding: 10px 20px;
+        font-size: 16px;
+    }
+
+    .mc-titulo {
+        font-size: 26px;
+    }
+
+    .mc-info {
+        font-size: 14px;
+    }
+
+    #plataformas .mc-plat-item {
+        font-size: 14px;
+        height: 70px;
+        padding-left: 12px;
+        padding-right: 12px;
+    }
+
+    .mc-tabla th {
+        font-size: 14px;
+    }
+
+    .mc-tabla td {
+        font-size: 13px;
+    }
+}
+
+
+
+/* ─────────────────────────────────────────────── */
+/*  RESPONSIVE – CELULARES PEQUEÑOS (≤576px)       */
+/* ─────────────────────────────────────────────── */
+@media (max-width: 576px) {
+
+    .hero {
+        height: 40vh;
+    }
+
+    .hero h1 {
+        font-size: 30px;
+    }
+
+    .btn-mc {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+
+    .mc-tabs {
+        gap: 6px;
+    }
+
+    .mc-tab {
+        padding: 8px 16px;
+        font-size: 14px;
+    }
+
+    #plataformas .mc-plat-item {
+        flex-basis: 100%;
+        max-width: 100%;
+        height: 65px;
+        font-size: 13px;
+    }
+
+    #plataformas .mc-plat-btn {
+        height: 55px;
+        font-size: 11px;
+    }
+
+    .mc-tabla {
+        font-size: 12px;
+    }
+
+    .mc-tabla th,
+    .mc-tabla td {
+        padding: 8px;
+    }
+
+    .mc-contenedor {
+        margin-top: 40px;
+    }
+}
+
+
+/* ─────────────────────────────────────────────── */
+/*  RESPONSIVE – CELULARES MUY PEQUEÑOS (≤420px)   */
+/* ─────────────────────────────────────────────── */
+@media (max-width: 420px) {
+
+    .hero h1 {
+        font-size: 26px;
+    }
+
+    .btn-mc {
+        padding: 7px 15px;
+        font-size: 13px;
+    }
+
+    .mc-tab {
+        font-size: 12px;
+        padding: 7px 14px;
+    }
+
+    #plataformas .mc-plat-item {
+        font-size: 12px;
+        height: 60px;
+    }
+
+    .mc-tabla {
+        font-size: 11px;
+    }
+
+    .mc-tabla th,
+    .mc-tabla td {
+        padding: 6px;
+    }
+}

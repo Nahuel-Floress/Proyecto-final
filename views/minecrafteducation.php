@@ -5,23 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minecraft</title>
-    <link rel="stylesheet" href="css/minecraftlgpg.css">
+    <link rel="stylesheet" href="css/minecrafteducation.css">
     <link rel="icon" type="image" href="img/icono.png">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <script src="js/minecraftlgpg.js" defer></script>
+    <script src="js/minecrafteducation.js" defer></script>
 </head>
 
 <body class="juego-m">
 
     <div class="hero">
-        <h1>MINECRAFT LEGENDS</h1>
-        <a href="#" class="btn-mc"><span>OBTENER LEGENDS</span></a>    
+        <h1>MINECRAFT EDUCATION</h1>
+        <a href="#" class="btn-mc"><span>OBTENER EDUCATION</span></a>    
     </div>
 
 
     <section class="mc-contenedor">
-        <h2 class="mc-titulo">PLATAFORMAS CON MINECRAFT LEGENDS</h2>
+        <h2 class="mc-titulo">PLATAFORMAS CON MINECRAFT EDUCATION</h2>
 
         <div class="mc-tabs">
             <div class="mc-tab active" data-tab="plataformas">Plataformas</div>
@@ -29,7 +29,7 @@
 
         <div id="plataformas" class="mc-seccion visible">
             <p class="mc-info">
-                Minecraft LEGENDS está disponible para jugar en las siguientes plataformas. <span class="mc-link">Minecraft</span>.
+                Minecraft EDUCATION está disponible para jugar en las siguientes plataformas. <span class="mc-link">Minecraft</span>.
             </p>
 
             <div class="mc-plataformas-grid">
@@ -102,6 +102,7 @@
             </div>
         </div>
 
+       
     </section>
 
 
@@ -109,11 +110,11 @@
 
         <h1 class="minecraft-title">
             DESCUBRE EL MUNDO DE <br>
-            <span>MINECRAFT LEGENDS</span>
+            <span>MINECRAFT EDUCATION</span>
         </h1>
 
         <p class="description">
-            Descubre los misterios de Minecraft Legends, un nuevo juego de acción y estrategia. Lidera a tus aliados en heroicas batallas para defender la Superficie de los destructivos piglins.
+         Descubra nuevos y emocionantes recursos didácticos y novedades sobre productos.
 
 
         </p>
@@ -124,19 +125,19 @@
                 <div id="principalCarousel" class="carousel slide" data-bs-ride="false">
                     <div class="carousel-inner">
                         <div class="carousel-item active">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/Minecraft_Legends_TU2-NovemberUpdate_Trailer_Thumbnail_2MB.png" class="carousel-img">
+                            <img src="https://education.minecraft.net/content/dam/education-edition/key-art/MCEDU_HOAI_TFN_New_and_Noteworthy_553x400.png" class="carousel-img">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_Witch_Hero_1920x1080.jpg" class="carousel-img">
+                            <img src="https://education.minecraft.net/content/dam/education-edition/key-art/MCEDU_Reed_Smart_AI_Detective_Minecraft_Education_Web_New_and_Noteworthy_553x400.png" class="carousel-img">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_Frog_Hero_1920x1080.jpg" class="carousel-img">
+                            <img src="https://education.minecraft.net/content/dam/education-edition/key-art/MCEDU_PBL.png" class="carousel-img">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_Clanger_Hero_1920x1080.jpg" class="carousel-img">
+                            <img src="https://education.minecraft.net/content/dam/education-edition/photography/Homepage_Stacking-Card-0_01_800x600.jpg" class="carousel-img">
                         </div>
                         <div class="carousel-item">
-                            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_AirChopper_Hero_1920x1080.jpg" class="carousel-img">
+                            <img src="https://education.minecraft.net/content/dam/education-edition/photography/Homepage_Stacking-Card-0_02_800x600.jpg" class="carousel-img">
                         </div>
                     </div>
                 </div>
@@ -160,11 +161,11 @@
 
         <div class="thumbs-container mt-4">
             <div class="thumbs-track">
-                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/Minecraft_Legends_TU2-NovemberUpdate_Trailer_Thumbnail_2MB.png" class="thumb" data-index="0">
-                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_Witch_Hero_1920x1080.jpg" class="thumb" data-index="1">
-                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_Frog_Hero_1920x1080.jpg" class="thumb" data-index="2">
-                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_Clanger_Hero_1920x1080.jpg" class="thumb" data-index="3">
-                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/badger/screenshots/TU2-Update_Screenshots_AirChopper_Hero_1920x1080.jpg" class="thumb" data-index="4">
+                <img src="https://education.minecraft.net/content/dam/education-edition/key-art/MCEDU_HOAI_TFN_New_and_Noteworthy_553x400.png" class="thumb" data-index="0">
+                <img src="https://education.minecraft.net/content/dam/education-edition/key-art/MCEDU_Reed_Smart_AI_Detective_Minecraft_Education_Web_New_and_Noteworthy_553x400.png" class="thumb" data-index="1">
+                <img src="https://education.minecraft.net/content/dam/education-edition/key-art/MCEDU_PBL.png" class="thumb" data-index="2">
+                <img src="https://education.minecraft.net/content/dam/education-edition/photography/Homepage_Stacking-Card-0_01_800x600.jpg" class="thumb" data-index="3">
+                <img src="https://education.minecraft.net/content/dam/education-edition/photography/Homepage_Stacking-Card-0_02_800x600.jpg" class="thumb" data-index="4">
             </div>
         </div>
 

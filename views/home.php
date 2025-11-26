@@ -76,7 +76,7 @@
         </a>
 
 
-        <a href="minecraft-pg.html" class="link-pg">
+        <a href="minecrafteducation.php" class="link-pg">
             <div class="card">
                 <img src="img/minecraft-img-card4.jpg" alt="Tarjeta4">
                 <h3>Minecraft Education</h3>
