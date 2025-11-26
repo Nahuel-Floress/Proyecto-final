@@ -68,7 +68,7 @@
             </div>
         </div>
 
-        <form id="buyForm" action="library.php" method="POST">
+        <form id="buyForm" action="cart.php" method="POST">
             <input type="hidden" name="producto" id="productoSeleccionado" value="Deluxe PC Collection">
             <button type="submit" class="btn-buy">COMPRAR</button>
         </form>
@@ -124,53 +124,46 @@
 <?php
 if (!empty($_POST["producto"])) {
 
-    // Datos básicos
     $producto = $_POST["producto"];
-    $fecha = date("Y-m-d H:i:s");
 
-    // Base de datos JSON
+    // Archivo JSON simulando BD
     $jsonFile = __DIR__ . "/library.json";
-
-    // Si existe, cargarlo
     $library = [];
+
     if (file_exists($jsonFile)) {
         $library = json_decode(file_get_contents($jsonFile), true);
-        if (!is_array($library)) { $library = []; }
+        if (!is_array($library))
+            $library = [];
     }
 
-    // Información de cada producto (puedes editar cuando quieras)
+    // Info de productos con descripción
     $info = [
         "Deluxe PC Collection" => [
             "image" => "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/PDP-Hero_OV-Deluxe_16x9.jpg",
             "description" => "Incluye Java, Bedrock, Minecoins y contenido adicional exclusivo."
         ],
-
         "Standard PC Edition" => [
             "image" => "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png",
             "description" => "Incluye Minecraft Java Edition, Bedrock Edition y el Launcher oficial."
         ]
     ];
 
-    // Si el producto existe en el mapa, usar esa info
-    $img = $info[$producto]["image"] ?? "";
+    $img  = $info[$producto]["image"] ?? "";
     $desc = $info[$producto]["description"] ?? "Juego adquirido en la tienda.";
 
-    // Crear registro
-    $newItem = [
-        "title" => $producto,
-        "image" => $img,
-        "description" => $desc,
-        "date" => $fecha
+    // Guardar CON descripción
+    $library[] = [
+        "title"       => $producto,
+        "image"       => $img,
+        "description" => $desc
     ];
 
-    // Guardar en la biblioteca
-    $library[] = $newItem;
     file_put_contents($jsonFile, json_encode($library, JSON_PRETTY_PRINT));
 
-    // Mostrar alerta y enviar a library
+    // ALERTA + REDIRECCIÓN SIN LOOP
     echo "<script>
             alert('¡Compra realizada correctamente! Has adquirido: $producto');
-            window.location.href='library.php';
+            window.location.href = 'cart.php';
           </script>";
     exit;
 }

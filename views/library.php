@@ -1,35 +1,23 @@
 <?php
-// ======================================================================
-// SISTEMA DE BIBLIOTECA PREPARADO PARA BASE DE DATOS
-// (Actualmente simula una DB usando JSON, pero la lógica ya es estilo SQL)
-// ======================================================================
-
-// Archivo usado mientras NO exista la BD real
+// Archivo JSON simulando BD
 $jsonFile = __DIR__ . "/library.json";
 
-// ---------------------------
-// Funciones estilo base de datos
-// ---------------------------
-
-// Traer todos los juegos
 function db_get_all_games()
 {
     global $jsonFile;
-
-    if (!file_exists($jsonFile)) return [];
-
+    if (!file_exists($jsonFile))
+        return [];
     $data = json_decode(file_get_contents($jsonFile), true);
     return is_array($data) ? $data : [];
 }
 
-// Eliminar un juego por ID
 function db_delete_game($id)
 {
     global $jsonFile;
-
     $games = db_get_all_games();
 
-    if (!isset($games[$id])) return false;
+    if (!isset($games[$id]))
+        return false;
 
     unset($games[$id]);
     $games = array_values($games);
@@ -38,26 +26,19 @@ function db_delete_game($id)
     return true;
 }
 
-// ======================================================================
-// CARGAR BIBLIOTECA
-// ======================================================================
-
+// Cargar lista
 $library = db_get_all_games();
 
-// ======================================================================
-// ELIMINAR JUEGO
-// ======================================================================
-
+// Eliminar sin header()
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete"])) {
 
     $id = intval($_POST["delete"]);
-
     db_delete_game($id);
 
-    header("Location: library.php");
+    // Redirección sin header (no tira error)
+    echo "<script>window.location.href='library.php';</script>";
     exit;
 }
-
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -65,7 +46,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete"])) {
 <head>
     <meta charset="UTF-8">
     <title>Mi Biblioteca</title>
-
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
     <link rel="stylesheet" href="css/library.css">
 </head>
@@ -98,12 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete"])) {
 
             <section class="grid">
 
-                <?php foreach (array_reverse($library) as $revIndex => $game):
-
-                    // Calcular ID original como si fuera una BD con IDs
-                    $originalIndex = count($library) - 1 - $revIndex;
-
-                    ?>
+                <?php foreach ($library as $id => $game): ?>
 
                     <article class="game-card">
 
@@ -115,25 +90,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["delete"])) {
 
                             <h3 class="game-title"><?= htmlspecialchars($game['title']) ?></h3>
 
-                            <div class="game-meta">
-                                <span class="game-date">
-                                    <i class="bi bi-calendar-event"></i>
-                                    <?= htmlspecialchars($game['date']) ?>
-                                </span>
-                                <span class="game-badge">Comprado</span>
-                            </div>
-
+                            <!-- DESCRIPCIÓN AGREGADA -->
                             <p class="game-desc"><?= htmlspecialchars($game['description']) ?></p>
 
                             <p class="game-actions">
-                                <a href="#" class="btn small">Jugar</a>
-                                <a href="#" class="btn outline small">Detalles</a>
+                                <a href="#" class="btn big">Jugar</a>
                             </p>
 
-                            <!-- BOTÓN ELIMINAR -->
                             <form method="POST" class="delete-form" onsubmit="return confirm('¿Eliminar este juego?');">
-                                <input type="hidden" name="delete" value="<?= $originalIndex ?>">
-                                <button class="btn delete small" type="submit">
+                                <input type="hidden" name="delete" value="<?= $id ?>">
+                                <button class="btn delete big" type="submit">
                                     <i class="bi bi-trash"></i> Eliminar
                                 </button>
                             </form>

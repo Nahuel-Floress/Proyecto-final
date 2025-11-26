@@ -35,7 +35,6 @@ if ($result && mysqli_num_rows($result) === 1) {
         $_SESSION['nombreDeUsuario'] = $row['nombreDeUsuario'];
         $_SESSION['IDusuario'] = $row['IDusuario'];
         $_SESSION['email'] = $row['email'];
-        $_SESSION['rol'] = $row['rol'];
 
         if (password_needs_rehash($hashEnBD, PASSWORD_DEFAULT)) {
             $newHash = password_hash($contraseña, PASSWORD_DEFAULT);
@@ -64,7 +63,6 @@ if ($result && mysqli_num_rows($result) === 1) {
         $_SESSION['nombreDeUsuario'] = $row['nombreDeUsuario'];
         $_SESSION['IDusuario'] = $row['IDusuario'];
         $_SESSION['email'] = $row['email'];
-        $_SESSION['rol'] = $row['rol'];
 
         mysqli_stmt_close($stmt);
         header("Location: index.php");
