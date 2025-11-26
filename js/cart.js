@@ -26,3 +26,18 @@ faqItems.forEach(item => {
         }
     });
 });
+
+// ===================== SELECCIÓN DE EDICIONES =====================
+
+const editionCards = document.querySelectorAll(".select-edition");
+
+editionCards.forEach(card => {
+    card.addEventListener("click", () => {
+
+        // Quitar selección previa
+        editionCards.forEach(c => c.classList.remove("selected"));
+
+        // Seleccionar esta
+        card.classList.add("selected");
+    });
+});
