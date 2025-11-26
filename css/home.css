@@ -183,7 +183,6 @@ a {
     }
 }
 
-        /* Tablets horizontales */
         @media (max-width: 992px) {
             .grid-juegos {
                 grid-template-columns: repeat(2, 1fr);
@@ -199,7 +198,7 @@ a {
             }
         }
 
-        /* Tablets verticales / celulares grandes */
+      
         @media (max-width: 768px) {
             .dlc-info {
                 position: relative;
@@ -226,7 +225,7 @@ a {
             }
         }
 
-        /* CELULARES (Samsung, iPhone, Motorola, Xiaomi) */
+   
         @media (max-width: 576px) {
             .dlc-banner img {
                 height: 42vh;
@@ -259,7 +258,7 @@ a {
 
 
 
-        /* Tablets horizontales */
+       
         @media (max-width: 992px) {
             .grid-juegos {
                 grid-template-columns: repeat(2, 1fr);
@@ -275,7 +274,7 @@ a {
             }
         }
 
-        /* Tablets verticales / celulares grandes */
+        
         @media (max-width: 768px) {
             .dlc-info {
                 position: relative;
@@ -302,7 +301,6 @@ a {
             }
         }
 
-        /* CELULARES (Samsung, iPhone, Motorola, Xiaomi) */
         @media (max-width: 576px) {
             .dlc-banner img {
                 height: 42vh;
@@ -326,10 +324,6 @@ a {
                 font-size: 1.8rem;
             }
         }
-
-
-
-        /* ---------- NOTICIAS ---------- */
 
         .news-section {
             width: 100%;
@@ -411,7 +405,7 @@ a {
             border-radius: 6px;
             cursor: pointer;
             transition: transform .2s ease;
-            overflow: hidden; /* mantiene todo dentro del contenedor */
+            overflow: hidden; 
         }
 
         .news-card img {
@@ -421,17 +415,17 @@ a {
             display: block;
         }
 
-        /* Recuadro del título */
+       
         .news-card h3 {
             position: absolute;
             left: 0;
             right: 0;
 
-            /* SIEMPRE PEGADO ABAJO */
+          
             bottom: 0;
 
             margin: 0;
-            padding: 10px 14px;     /* altura inicial */
+            padding: 10px 14px;     
             font-size: 17px;
             font-weight: 600;
 
@@ -443,9 +437,9 @@ a {
             box-sizing: border-box;
         }
 
-        /* Hover: aumenta la altura, pero sin despegarse del fondo */
+        
         .news-card:hover h3 {
-            padding: 26px 18px;            /* crece hacia arriba */
+            padding: 26px 18px;            
             background: rgba(0,0,0,0.75);
         }
         .news-card h3 {
@@ -454,22 +448,22 @@ a {
             right: 0;
             bottom: 0;
 
-            width: 100%;               /* Asegura ancho completo */
+            width: 100%;               
             margin: 0;
             padding: 12px 14px;
 
             background: rgba(0,0,0,0.6);
             color: #fff;
 
-            border-radius: 0 0 6px 6px; /* SOLO esquinas inferiores redondeadas */
-            box-sizing: border-box;    /* Para que el padding no achique el ancho */
+            border-radius: 0 0 6px 6px; 
+            box-sizing: border-box;    
 
             transition: padding .28s cubic-bezier(.2,.9,.3,1),
                         background .28s ease;
         }
 
         .news-card:hover h3 {
-            padding: 26px 18px;        /* crece hacia arriba */
+            padding: 26px 18px;        
             background: rgba(0,0,0,0.75);
         }
 
