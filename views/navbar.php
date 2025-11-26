@@ -232,7 +232,7 @@
                     <ul>
 
                         <?php if (!$usuarioLogeado): ?>
-                            <li><a href="login.php" class="iniciar-sesion">INICIAR SESIÓN</a></li>
+                            <li><a href="views/login.php" class="iniciar-sesion">INICIAR SESIÓN</a></li>
                             <li><a href="views/register.php" class="iniciar-sesion">CREAR CUENTA</a></li>
 
                         <?php else: ?>

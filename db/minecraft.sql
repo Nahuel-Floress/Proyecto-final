@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2025 at 03:43 PM
+-- Generation Time: Nov 26, 2025 at 06:03 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -32,6 +32,14 @@ CREATE TABLE `biblioteca` (
   `IDusuario` int(11) NOT NULL,
   `idVideoJuego` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `biblioteca`
+--
+
+INSERT INTO `biblioteca` (`idBiblioteca`, `IDusuario`, `idVideoJuego`) VALUES
+(14, 3, 1),
+(15, 4, 1);
 
 -- --------------------------------------------------------
 
@@ -78,7 +86,8 @@ CREATE TABLE `usuario` (
 INSERT INTO `usuario` (`IDusuario`, `nombreDeUsuario`, `email`, `contraseña`, `fechaRegistro`, `saldo`, `rol`, `fotoDePerfil`) VALUES
 (1, 'Probando', '09@09', '$2y$10$mBafObbRXP85qlEuN.wqoOGub/SYtADSoY5wtQgHi9Rcc.U5OJ/Oa', '0000-00-00', 0.00, '', NULL),
 (2, 'Probando2', '01@01', '$2y$10$qE1y3gi.D6uGh1cS2wr6R.Qw5qU9Wr8mLOaW4BM4Z9aBF5GAUVJT6', '0000-00-00', 0.00, '', NULL),
-(3, '1', '1@1', '$2y$10$K5NnvOsL0YYlatf0eV0hTegnVZf7bXnMRjaL9CjSET2LddQZ0PqTK', '0000-00-00', 0.00, '', NULL);
+(3, '1', '1@1', '$2y$10$K5NnvOsL0YYlatf0eV0hTegnVZf7bXnMRjaL9CjSET2LddQZ0PqTK', '0000-00-00', 0.00, '', NULL),
+(4, '08', '08@08', '$2y$10$GMHeAzlMYUqhu12whe.FyuhyBZSc5kRZ14bCnpwVayHDe9N1LqN5m', '0000-00-00', 0.00, '', NULL);
 
 -- --------------------------------------------------------
 
@@ -139,7 +148,7 @@ ALTER TABLE `videojuego`
 -- AUTO_INCREMENT for table `biblioteca`
 --
 ALTER TABLE `biblioteca`
-  MODIFY `idBiblioteca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+  MODIFY `idBiblioteca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `imagenes_juego`
@@ -151,7 +160,7 @@ ALTER TABLE `imagenes_juego`
 -- AUTO_INCREMENT for table `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `IDusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `IDusuario` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `videojuego`
