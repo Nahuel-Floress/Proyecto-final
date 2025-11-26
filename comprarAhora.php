@@ -1,5 +1,5 @@
 <?php 
 require_once "includes/config.php";
-$section = "views/carrito";
+$section = "views/comprarAhora";
 require_once "layout.php";
 ?>

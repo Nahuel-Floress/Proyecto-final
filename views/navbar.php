@@ -201,7 +201,7 @@
 
         <div class="acciones">
             <button class="btn-compra">
-                <a href="carrito.php">COMPRAR AHORA</a>
+                <a href="comprarAhora.php">COMPRAR AHORA</a>
                 <span class="btn-arrow arrow-right"></span>
             </button>
 
