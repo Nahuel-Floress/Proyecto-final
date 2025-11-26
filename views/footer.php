@@ -28,7 +28,7 @@
             </ul>
             <h4>Cuenta</h4>
             <ul>
-                <li><a href="#">Perfil</a></li>
+                <li><a href="perfilUsuario.php">Perfil</a></li>
             </ul>
         </div>
 
