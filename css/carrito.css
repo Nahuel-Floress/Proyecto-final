@@ -1,0 +1,145 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), 
+                url(../img/fondoCarrito.png) no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+.carrito-container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 30px;
+    flex-wrap: wrap;
+  
+    width: 100%;       
+    min-height: 50vh;  
+    padding: 176px 0;   
+  
+}
+
+.cesta {
+    background-color: #2b2b2b83;
+    border-radius: 10px;
+    padding: 30px;
+    width: 600px;
+    min-height: 250px;
+}
+
+.cesta h2 {
+    margin-bottom: 20px;
+    color: #fff;
+}
+
+.cesta-vacia {
+    text-align: center;
+    background-color: #252525;
+    border-radius: 10px;
+    padding: 40px 20px;
+}
+
+.icono-carrito {
+    font-size: 40px;
+    color: orange;
+    margin-bottom: 10px;
+}
+
+.cesta-vacia h3 {
+    margin: 10px 0;
+}
+
+.cesta-vacia p {
+    font-size: 14px;
+    color: #aaa;
+    margin-bottom: 20px;
+}
+
+.cesta-vacia button {
+    background-color: transparent;
+    border: 1px solid #666;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.cesta-vacia button:hover {
+    background-color: #333333;
+}
+
+
+.resumen {
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    padding: 30px;
+    width: 250px;
+}
+
+.resumen h2 {
+    margin-bottom: 20px;
+}
+
+.resumen-info p {
+    display: flex;
+    justify-content: space-between;
+    margin: 8px 0;
+    font-size: 14px;
+}
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: #444;
+    margin: 10px 0;
+}
+
+.total {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.btn-siguiente {
+    width: 100%;
+    padding: 10px;
+    margin-top: 15px;
+    background: linear-gradient(90deg, #ff6a00, #ff3300);
+    border: none;
+    color: #fff;
+    border-radius: 5px;
+    cursor: not-allowed;
+    
+}
+
+.btn-siguiente:hover
+{
+    background-color: rgb(250, 172, 27);
+}
+
+.seguir {
+    display: block;
+    text-align: center;
+    margin-top: 15px;
+    color: #aaa;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.seguir:hover {
+    text-decoration: underline;
+}
+
+
+@media (max-width: 768px) {
+    .carrito-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .cesta, .resumen {
+        width: 90%;
+    }
+}

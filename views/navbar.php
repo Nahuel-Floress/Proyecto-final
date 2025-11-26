@@ -105,7 +105,7 @@
                                 <li>
                                     <h5>Acceso rápido</h5>
                                 </li>
-                                <li><a>Mi carrito</a></li>
+                                <li><a href="carrito.php">Mi carrito</a></li>
                                 <li><a>Historial</a></li>
                                 <li><a>Soporte compras</a></li>
                             </ul>

@@ -9,51 +9,25 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
 
     if (!isset($_SESSION["IDusuario"])) {
         echo "<script>
-            alert('Debes iniciar sesión para comprar');
+            alert('Debes iniciar sesión para continuar');
             window.location.href='views/login.php';
         </script>";
         exit;
     }
 
-    $IDusuario = intval($_SESSION["IDusuario"]);
     $idVideoJuego = intval($_POST["idVideoJuego"]);
 
-    $stmt = $conex->prepare("SELECT nombreDelJuego FROM videojuego WHERE idVideoJuego = ? LIMIT 1");
-    $stmt->bind_param("i", $idVideoJuego);
-    $stmt->execute();
-    $res = $stmt->get_result();
-
-    if ($res->num_rows === 0) {
-        echo "<script>alert('El juego seleccionado no existe'); window.location.href='home.php';</script>";
-        exit;
+    if (!isset($_SESSION['cart'])) {
+        $_SESSION['cart'] = [];
     }
 
-    $juego = $res->fetch_assoc();
-    $nombreJuego = $juego["nombreDelJuego"];
-    $stmt->close();
-
-    $stmt = $conex->prepare("SELECT idBiblioteca FROM biblioteca WHERE IDusuario = ? AND idVideoJuego = ? LIMIT 1");
-    $stmt->bind_param("ii", $IDusuario, $idVideoJuego);
-    $stmt->execute();
-    $check = $stmt->get_result();
-    $stmt->close();
-
-    if ($check->num_rows > 0) {
-        echo "<script>
-            alert('Ya adquiriste este juego');
-            window.location.href = 'cart.php';
-        </script>";
-        exit;
+    if (!in_array($idVideoJuego, $_SESSION['cart'])) {
+        $_SESSION['cart'][] = $idVideoJuego;
     }
-
-    $stmt = $conex->prepare("INSERT INTO biblioteca (IDusuario, idVideoJuego) VALUES (?, ?)");
-    $stmt->bind_param("ii", $IDusuario, $idVideoJuego);
-    $stmt->execute();
-    $stmt->close();
 
     echo "<script>
-        alert('¡Compra realizada correctamente! Has adquirido: $nombreJuego');
-        window.location.href = 'cart.php';
+        alert('El producto fue agregado al carrito.');
+        window.location.href = 'carrito.php';
     </script>";
     exit;
 }
@@ -135,13 +109,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
 
             <form method="POST" action="cart.php">
                 <input type="hidden" name="idVideoJuego" value="1">
-                <button type="submit" class="btn-buy">Comprar</button>
+                <button type="submit" class="btn-buy">Agregar al carrito</button>
             </form>
 
         </div>
 
     </div>
-
 
     <div class="platforms">
         <h3>OTRAS PLATAFORMAS</h3>

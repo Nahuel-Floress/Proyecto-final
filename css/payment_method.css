@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    background: linear-gradient(to top, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0)), 
+                url(../img/pagoFondo.webp) no-repeat center center fixed;
+    background-size: cover;
+    color: #fff;
+}
+
+  
+   .payment-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;     
+    min-height: 50vh;  
+    padding: 240px 0;
+    flex-wrap: wrap;
+    }
+  
+   .payment-container {
+    backdrop-filter: blur(10px);
+    padding: 20px;
+    border-radius: 14px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.6);
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+  }
+  
+  h2 {
+    color: #ffffff;
+    margin-bottom: 30px;
+    font-size: 1.4rem;
+  }
+  
+  .amount-display {
+    font-size: 1.5rem;
+    color: #ffffff;
+    margin-bottom: 25px;
+    text-align: center;
+  }
+  
+  .btn-paypal,
+  .btn-mercadolibre {
+    width: 100%;
+    padding: 12px;
+    margin-top: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;  
+    position: relative; 
+    transition: all 0.3s ease;
+  }
+  
+  .btn-paypal img,
+  .btn-mercadolibre img {
+    width: 56px;
+    height: 36px;
+    border-radius: 4px;
+    position: absolute;
+    left: 16px;  
+  }
+  
+  .btn-mercadolibre {
+    background: linear-gradient(90deg, #77dd4e, #63b65f);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(157, 78, 221, 0.4);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .btn-mercadolibre:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(157, 78, 221, 0.6);
+  }
+  
+  
+  @media (max-width: 480px) {
+    .payment-container {
+      padding: 25px;
+    }
+.btn-paypal, .btn-mercadolibre {
+      font-size: 15px;
+      padding: 10px;
+    }
+  }
+  
