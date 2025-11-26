@@ -72,8 +72,8 @@
                         <div class="mega-col left">
                             <nav class="games-list">
                                 <a class="active">Ofertas</a>
-                                <a>Paquetes</a>
-                                <a>Complementos</a>
+                                <a>Suscripciones</a>
+                                <a>Comercializacion</a>
                             </nav>
                         </div>
 

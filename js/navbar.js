@@ -49,19 +49,19 @@ const navData = {
     rightTexts: ["Comprar ahora", "Más descuentos", "Historial"]
   },
 
-  "Paquetes": {
+  "Suscripciones": {
     headingRightText: "Paquetes destacados",
     headingRightColor: "#71c72d",
-    images: ["img/minecraft-img-card3.jpg", "img/minecraft-img-card2.jpg", "img/minecraft-img-card4.jpg"],
+    images: ["https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/realms/Global-Header_Image-Tile_Realms-Bedrock_570x321_01.png", "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/marketplace/Global-Header_Image-Tile_Marketplace-Pass_321x321.jpg", "img/minecraft-img-card4.jpg"],
     titles: ["Paquete 1", "Paquete 2", "Paquete 3"],
     texts: ["Texto paquete 1", "Texto paquete 2", "Texto paquete 3"],
     rightTexts: ["Ver paquetes", "Más info", "Comprar"]
   },
 
-  "Complementos": {
-    headingRightText: "Complementos del Marketplace",
+  "Comercializacion": {
+    headingRightText: "Comercializacion del Marketplace",
     headingRightColor: "#71c72d",
-    images: ["img/minecraft-img-card4.jpg", "img/minecraft-img-card2.jpg", "img/minecraft-img-card1.jpg"],
+    images: ["https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/merch/MC_Slippers_Dot_Net_Tile_570x321.png", "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/merch/Global-Header_Image-Tile_Merch-Kids_321x321.jpg", "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/merch/Global-Header_Image-Tile_Merch-Plush_321x321.jpg"],
     titles: ["Add-on 1", "Add-on 2", "Add-on 3"],
     texts: ["Texto add-on 1", "Texto add-on 2", "Texto add-on 3"],
     rightTexts: ["Ver add-ons", "Instalar", "Más detalles"]
