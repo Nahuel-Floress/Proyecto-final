@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 26, 2025 at 06:03 PM
+-- Generation Time: Nov 26, 2025 at 09:20 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -38,8 +38,8 @@ CREATE TABLE `biblioteca` (
 --
 
 INSERT INTO `biblioteca` (`idBiblioteca`, `IDusuario`, `idVideoJuego`) VALUES
-(14, 3, 1),
-(15, 4, 1);
+(24, 3, 1),
+(25, 1, 1);
 
 -- --------------------------------------------------------
 
@@ -148,7 +148,7 @@ ALTER TABLE `videojuego`
 -- AUTO_INCREMENT for table `biblioteca`
 --
 ALTER TABLE `biblioteca`
-  MODIFY `idBiblioteca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `idBiblioteca` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
 -- AUTO_INCREMENT for table `imagenes_juego`
