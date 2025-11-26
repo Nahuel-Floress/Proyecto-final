@@ -3,12 +3,12 @@
 <script src="js/home.js" defer></script>
 
 
-<section class="dlc-section">
+<section class="dlc-section">   
     <div class="dlc-banner">
         <img src="img/Minecraft-banner.jpg" alt="Minecraft-banner">
 
         <div class="dlc-info">
-            <h2>El drop la edad del cobre</h2>
+            <h2>EL DROP DE LA EDAD DEL COBRE</h2>
             <p>Transforma este metal versátil en herramientas, fuentes de luz, almacenamiento inteligente e incluso
                 compañeros mecánicos conocidos como gólems de cobre.</p>
             <button class="btn-verde">CONSULTA LA ACTUALIZACION</button>
@@ -95,7 +95,7 @@
 
 <section class="news-section">
     <h2 class="news-title">NOTICIAS MÁS RECIENTES</h2>
-    <a href="#" class="ver-todas">Ver todas las noticias →</a>
+    <a href="#" class="ver-todas">Ver todas las noticias</a>
 
     <div class="news-grid">
 
@@ -138,7 +138,7 @@
         
         <article class="news-card">
             <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/MoM6_tile_565x565.jpg" alt="">
-            <h3>Mounts of Mayhem: Friends Arena</h3>
+            <h3>Mounts of Mayhem: Friends</h3>
         </article>
 
         
