@@ -1,6 +1,17 @@
 <?php
+// perfil controlador
 require_once "includes/config.php";
-$IDusuario = $_SESSION['IDusuario'] ?? 0;
+
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+$IDusuario = intval($_SESSION['IDusuario'] ?? 0);
+
+if ($IDusuario <= 0) {
+    echo "<script>window.location.href='login.php';</script>";
+    exit;
+}
 
 if (isset($_POST['guardarFoto'])) {
     $fotoURL = trim($_POST['fotoDePerfil'] ?? '');
@@ -47,14 +58,19 @@ if (isset($_POST['guardarConfiguracion'])) {
     }
 }
 
+// obtener foto perfil
 $fotoPerfil = "img/avatar.png";
-$result = $conex->query("SELECT fotoDePerfil FROM usuario WHERE IDusuario = $IDusuario LIMIT 1");
-if ($result && $row = $result->fetch_assoc()) {
-    if (!empty($row['fotoDePerfil']))
-        $fotoPerfil = $row['fotoDePerfil'];
+$stmt = $conex->prepare("SELECT fotoDePerfil FROM usuario WHERE IDusuario = ? LIMIT 1");
+if ($stmt) {
+    $stmt->bind_param("i", $IDusuario);
+    $stmt->execute();
+    $res = $stmt->get_result();
+    if ($res && $row = $res->fetch_assoc()) {
+        if (!empty($row['fotoDePerfil']))
+            $fotoPerfil = $row['fotoDePerfil'];
+    }
+    $stmt->close();
 }
-
 
 $section = "views/perfilUsuario";
 require_once "layout.php";
-?>
