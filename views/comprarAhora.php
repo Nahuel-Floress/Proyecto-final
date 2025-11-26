@@ -1,6 +1,6 @@
-<link rel="stylesheet" href="css/carrito.css">
+<link rel="stylesheet" href="css/comprarAhora.css">
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
-<script src="js/carrito.js" defer></script>
+<script src="js/comprarAhora.js" defer></script>
 
 
 <section class="juegos">

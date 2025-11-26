@@ -7,10 +7,10 @@
 
 <div class="store-container">
 
-    <!-- HERO -->
     <div class="hero-card">
         <div class="hero-img">
-            <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/PDP-Hero_OV-Deluxe_16x9.jpg">
+            <img
+                src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/PDP-Hero_OV-Deluxe_16x9.jpg">
         </div>
 
         <div class="hero-info">
@@ -30,14 +30,10 @@
         </div>
     </div>
 
-    <!-- EDICIONES -->
     <div class="editions-box">
         <h3 class="select-title">ELEGIR UNA EDICIÓN</h3>
 
-        <!-- DELUXE -->
-        <form action="comprar.php" method="POST" class="edition-card edition-featured select-edition">
-            <input type="hidden" name="producto" value="Deluxe PC Collection">
-
+        <div class="edition-card select-edition selected" data-product="Deluxe PC Collection">
             <div class="featured-header">Best value!</div>
 
             <h2 class="edition-title">DELUXE PC COLLECTION</h2>
@@ -52,19 +48,12 @@
                 <span>3 Skin Packs</span>
             </div>
 
-            <div class="edition-bottom">
-                <div class="price">
-                    <i class="bi bi-circle-fill price-icon"></i> $39.99
-                </div>
-
-                <button type="submit" class="btn-buy">COMPRAR</button>
+            <div class="price">
+                <i class="bi bi-circle-fill price-icon"></i> $39.99
             </div>
-        </form>
+        </div>
 
-        <!-- STANDARD -->
-        <form action="comprar.php" method="POST" class="edition-card select-edition">
-            <input type="hidden" name="producto" value="Standard PC Edition">
-
+        <div class="edition-card select-edition" data-product="Standard PC Edition">
             <h2 class="edition-title">STANDARD PC EDITION</h2>
 
             <div class="items">
@@ -73,19 +62,20 @@
                 <span>Minecraft Launcher</span>
             </div>
 
-            <div class="edition-bottom">
-                <div class="price">
-                    <i class="bi bi-circle price-icon"></i> $29.99
-                </div>
 
-                <button type="submit" class="btn-buy">COMPRAR</button>
+            <div class="price">
+                <i class="bi bi-circle price-icon"></i> $29.99
             </div>
+        </div>
+
+        <form id="buyForm" action="library.php" method="POST">
+            <input type="hidden" name="producto" id="productoSeleccionado" value="Deluxe PC Collection">
+            <button type="submit" class="btn-buy">COMPRAR</button>
         </form>
 
     </div>
 </div>
 
-<!-- OTRAS PLATAFORMAS -->
 <div class="platforms">
     <h3>OTRAS PLATAFORMAS</h3>
 
@@ -100,7 +90,6 @@
     </div>
 </div>
 
-<!-- FAQ -->
 <div class="faq-section">
     <h3 class="faq-title">PREGUNTAS MÁS FRECUENTES</h3>
 
@@ -131,20 +120,58 @@
 
 <script src="js/cart.js" defer></script>
 
+
 <?php
-// Procesar compra
 if (!empty($_POST["producto"])) {
 
+    // Datos básicos
     $producto = $_POST["producto"];
     $fecha = date("Y-m-d H:i:s");
 
-    $registro = "[$fecha] Compra: $producto" . PHP_EOL;
+    // Base de datos JSON
+    $jsonFile = __DIR__ . "/library.json";
 
-    file_put_contents("compras.txt", $registro, FILE_APPEND);
+    // Si existe, cargarlo
+    $library = [];
+    if (file_exists($jsonFile)) {
+        $library = json_decode(file_get_contents($jsonFile), true);
+        if (!is_array($library)) { $library = []; }
+    }
 
+    // Información de cada producto (puedes editar cuando quieras)
+    $info = [
+        "Deluxe PC Collection" => [
+            "image" => "https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/PDP-Hero_OV-Deluxe_16x9.jpg",
+            "description" => "Incluye Java, Bedrock, Minecoins y contenido adicional exclusivo."
+        ],
+
+        "Standard PC Edition" => [
+            "image" => "https://upload.wikimedia.org/wikipedia/en/5/51/Minecraft_cover.png",
+            "description" => "Incluye Minecraft Java Edition, Bedrock Edition y el Launcher oficial."
+        ]
+    ];
+
+    // Si el producto existe en el mapa, usar esa info
+    $img = $info[$producto]["image"] ?? "";
+    $desc = $info[$producto]["description"] ?? "Juego adquirido en la tienda.";
+
+    // Crear registro
+    $newItem = [
+        "title" => $producto,
+        "image" => $img,
+        "description" => $desc,
+        "date" => $fecha
+    ];
+
+    // Guardar en la biblioteca
+    $library[] = $newItem;
+    file_put_contents($jsonFile, json_encode($library, JSON_PRETTY_PRINT));
+
+    // Mostrar alerta y enviar a library
     echo "<script>
-            alert('¡Compra realizada correctamente: $producto!');
-            window.location.href='home.php';
+            alert('¡Compra realizada correctamente! Has adquirido: $producto');
+            window.location.href='library.php';
           </script>";
+    exit;
 }
 ?>

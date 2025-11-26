@@ -462,7 +462,6 @@ a {
     }
 }
 
-/* 992px — tablets en horizontal */
 @media (max-width: 992px) {
     .grid-juegos {
         grid-template-columns: repeat(2, 1fr);
@@ -496,7 +495,6 @@ a {
     }
 }
 
-/* 768px — tablets verticales / celulares grandes */
 @media (max-width: 768px) {
     .grid-juegos {
         grid-template-columns: repeat(2, 1fr);
@@ -538,7 +536,6 @@ a {
     }
 }
 
-/* 576px — CELULARES (Samsung, iPhone, Xiaomi, Motorola) */
 @media (max-width: 576px) {
     .grid-juegos {
         grid-template-columns: 1fr;
