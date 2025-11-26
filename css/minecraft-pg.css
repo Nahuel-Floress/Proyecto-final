@@ -211,19 +211,15 @@ body {
 #plataformas .mc-plat-empty {
     flex: 0 0 calc(33.333% - 14px);
     min-height: 78px;
-
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 18px;
-
     padding: 0 15px;
     position: relative;
-
     border-top: 2px solid var(--mc-border-dark);
     border-bottom: 2px solid var(--mc-border-dark);
     background: none;
-
     transition: background-color .20s ease;
     cursor: pointer;
 }
@@ -270,20 +266,16 @@ body {
 .mc-buy-btn {
     margin-left: auto;
     padding: 8px 14px;
-
     border: 2px solid white;
     background: transparent;
     color: white;
-
     font-size: 14px;
     font-weight: 700;
     letter-spacing: 0.5px;
     text-transform: uppercase;
-
     display: flex;
     align-items: center;
     gap: 6px;
-
     transition: 0.2s ease-out;
 }
 
@@ -301,16 +293,6 @@ body {
     color: black !important;
 }
 
-
-
-
-
-/* ------------------------------------------- */
-/*                  TABLAS                     */
-/* ------------------------------------------- */
-
-
-/* Título */
 .mc-tabla-title {
     text-align: center;
     margin-bottom: 25px;
@@ -320,7 +302,6 @@ body {
     color: var(--mc-text-main);
 }
 
-/* TABLA BASE */
 .mc-tabla {
     width: 100%;
     max-width: 950px;
@@ -332,7 +313,6 @@ body {
     background: #111;
 }
 
-/* CABECERA */
 .mc-tabla th {
     background: #0d0d0d;
     padding: 17px;
@@ -346,7 +326,6 @@ body {
     background: #111 !important;
 }
 
-/* CELDAS GENERALES */
 .mc-tabla td {
     padding: 16px 18px;
     font-size: 15px;
@@ -355,7 +334,6 @@ body {
     vertical-align: middle;
 }
 
-/* COLUMNA IZQUIERDA — características */
 .mc-caract-name {
     background: #1a1a1a;
     font-weight: 700;
@@ -363,9 +341,6 @@ body {
     align-items: center;
     gap: 8px;
 }
-
-/* ======== NUEVO: Alternancia horizontal ======== */
-/* Empieza justo en la fila 2 (pantalla dividida), donde comienzan ✔ y ✖ */
 
 .mc-tabla tr:nth-child(3) td:nth-child(2),
 .mc-tabla tr:nth-child(3) td:nth-child(3),
@@ -384,7 +359,6 @@ body {
 .mc-tabla tr:nth-child(17) td:nth-child(2),
 .mc-tabla tr:nth-child(17) td:nth-child(3) {
     background: #0d0d0d !important;
-    /* negro */
 }
 
 .mc-tabla tr:nth-child(4) td:nth-child(2),
@@ -404,30 +378,23 @@ body {
 .mc-tabla tr:nth-child(18) td:nth-child(2),
 .mc-tabla tr:nth-child(18) td:nth-child(3) {
     background: #161616 !important;
-    /* gris oscuro */
 }
 
-/* =================================================== */
-
-/* El hover solo aplica sobre texto para no romper los colores de fondo */
 .mc-tabla tr:hover td {
     background: #202020 !important;
 }
 
-/* Subinfo */
 .mc-sub-info {
     font-size: 12px;
     color: #999;
     margin-left: 4px;
 }
 
-/* Descripciones */
 .mc-desc {
     color: #d2d2d2;
     line-height: 1.3em;
 }
 
-/* Iconos */
 .mc-icon-yes {
     color: var(--mc-green);
     font-size: 20px;
@@ -438,7 +405,6 @@ body {
     font-size: 20px;
 }
 
-/* ICONO DE INFO */
 .mc-info-icon {
     border: 1px solid #555;
     width: 18px;
@@ -457,8 +423,6 @@ body {
     border-color: #aaa;
     color: #fff;
 }
-
-
 
 .minecraft-section {
     padding-top: 40px;
@@ -589,7 +553,6 @@ body {
     box-shadow: 0 0 12px #00ff00;
 }
 
-/* Botones */
 .arrow-prev,
 .arrow-next {
     cursor: pointer;
@@ -618,10 +581,6 @@ body {
     transform: rotate(130deg);
     display: inline-block;
 }
-
-
-
-
 
 @media (max-width: 900px) {
     .carousel-img {
@@ -667,11 +626,6 @@ body {
     }
 }
 
-
-
-
-
-
 @media (max-width: 1200px) {
 
     .hero h1 {
@@ -701,10 +655,6 @@ body {
     }
 }
 
-
-/* ─────────────────────────────────────────────── */
-/*  RESPONSIVE – CELULARES GRANDES (≤992px)        */
-/* ─────────────────────────────────────────────── */
 @media (max-width: 992px) {
 
     .hero {
@@ -764,10 +714,6 @@ body {
     }
 }
 
-
-/* ─────────────────────────────────────────────── */
-/*  RESPONSIVE – CELULARES ESTÁNDAR (≤768px)       */
-/* ─────────────────────────────────────────────── */
 @media (max-width: 768px) {
 
     .hero {
@@ -809,11 +755,6 @@ body {
     }
 }
 
-
-
-/* ─────────────────────────────────────────────── */
-/*  RESPONSIVE – CELULARES PEQUEÑOS (≤576px)       */
-/* ─────────────────────────────────────────────── */
 @media (max-width: 576px) {
 
     .hero {
@@ -864,10 +805,6 @@ body {
     }
 }
 
-
-/* ─────────────────────────────────────────────── */
-/*  RESPONSIVE – CELULARES MUY PEQUEÑOS (≤420px)   */
-/* ─────────────────────────────────────────────── */
 @media (max-width: 420px) {
 
     .hero h1 {

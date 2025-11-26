@@ -36,7 +36,6 @@
     <h1 class="login__title">Crear tu cuenta</h1>
 
     <div class="login__content">
-        <!-- Email -->
         <div class="login__box">
             <i class="bx bx-envelope"></i>
             <div class="login__box-input">
@@ -45,7 +44,6 @@
             </div>
         </div>
 
-        <!-- Username -->
         <div class="login__box">
             <i class="bx bx-user"></i>
             <div class="login__box-input">
@@ -54,7 +52,6 @@
             </div>
         </div>
 
-        <!-- Password -->
         <div class="login__box">
             <i class="ri-lock-2-line login__icon"></i>
             <div class="login__box-input">
@@ -63,7 +60,6 @@
             </div>
         </div>
 
-        <!-- Confirm Password -->
         <div class="login__box">
             <i class="ri-lock-2-line login__icon"></i>
             <div class="login__box-input">

@@ -37,13 +37,15 @@
                             </article>
 
                             <article class="card">
-                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/marketplace/Global-Header_Image-Tile_Marketplace-With-Logo_570x321.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/marketplace/Global-Header_Image-Tile_Marketplace-With-Logo_570x321.jpg"
+                                    alt="">
                                 <h4>Marketplace</h4>
                                 <p>Mantén tu experiencia con contenido nuevo y divertido.</p>
                             </article>
 
                             <article class="card">
-                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/realms/Global-Header_Image-Tile_Realms-Plus_321x321.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/realms/Global-Header_Image-Tile_Realms-Plus_321x321.jpg"
+                                    alt="">
                                 <h4>Minecraft Realms</h4>
                                 <p>Juega con tus amigos en tu propio servidor personal.</p>
                             </article>
@@ -135,7 +137,8 @@
                                 <p>Eventos y promociones en curso.</p>
                             </article>
                             <article class="card">
-                                <img src="https://www.minecraft.net/content/dam/minecraftnet/community/events/cy2025/sandstorm/MinecraftMovie_TT_300x300.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/community/events/cy2025/sandstorm/MinecraftMovie_TT_300x300.jpg"
+                                    alt="">
                                 <h4>Comunidad</h4>
                                 <p>Historias y contenido comunitario.</p>
                             </article>
@@ -167,17 +170,20 @@
 
                         <div class="mega-col center">
                             <article class="card">
-                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Global-Header_Image-Tile_Help-Center_570x321.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Global-Header_Image-Tile_Help-Center_570x321.jpg"
+                                    alt="">
                                 <h4>Guía de instalación</h4>
                                 <p>Paso a paso para comenzar a jugar.</p>
                             </article>
                             <article class="card">
-                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Global-Header_Image-Tile_%20Tips-For-Beginners%20_321x321_02.png" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/key-art/Global-Header_Image-Tile_%20Tips-For-Beginners%20_321x321_02.png"
+                                    alt="">
                                 <h4>Soporte</h4>
                                 <p>Contacta con el servicio técnico.</p>
                             </article>
                             <article class="card">
-                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/game-characters/Global-Header_Image-Tile_Report-a-Bug_321x321_02.jpg" alt="">
+                                <img src="https://www.minecraft.net/content/dam/minecraftnet/games/minecraft/game-characters/Global-Header_Image-Tile_Report-a-Bug_321x321_02.jpg"
+                                    alt="">
                                 <h4>Compatibilidad</h4>
                                 <p>Requerimientos por plataforma.</p>
                             </article>
@@ -214,14 +220,31 @@
                 <span class="cuenta-text">Cuenta</span>
                 <span class="arrow-cuenta"></span>
 
+                <?php
+                if (session_status() === PHP_SESSION_NONE) {
+                    session_start();
+                }
+
+                $usuarioLogeado = isset($_SESSION["IDusuario"]);
+                ?>
+
                 <div class="cuenta-dropdown" id="cuentaDropdown">
                     <ul>
-                        <li><a href="../Proyecto-Final/views/login.php" class="iniciar-sesion">INICIAR SESIÓN</a></li>
-                        <li><a href="../Proyecto-Final/views/register.php" class="iniciar-sesion">CREAR CUENTA</a></li>
-                        <a href="perfilUsuario.php"><li>DESCARGAR</li></a>
-                        <a href="library.php"><li>BIBLIOTECA</li></a>
+
+                        <?php if (!$usuarioLogeado): ?>
+                            <li><a href="login.php" class="iniciar-sesion">INICIAR SESIÓN</a></li>
+                            <li><a href="views/register.php" class="iniciar-sesion">CREAR CUENTA</a></li>
+
+                        <?php else: ?>
+                            <li><a href="perfilUsuario.php" class="iniciar-sesion">PERFIL</a></li>
+                            <li><a href="library.php" class="iniciar-sesion">BIBLIOTECA</a></li>
+                            <li><a href="#" class="iniciar-sesion">DESCARGAR</a></li>
+                        <?php endif; ?>
+
                     </ul>
                 </div>
+
+
             </button>
         </div>
 

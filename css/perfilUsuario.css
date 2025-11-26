@@ -3,6 +3,11 @@ a {
   color: var(--accent);
 }
 
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
 .link-pg {
   color: white;
 }
@@ -56,17 +61,6 @@ body {
   gap: 60px;
   margin-bottom: 60px;
 }
-
-/* .perfil-avatar {
-  flex-shrink: 0;
-  width: 280px;
-  height: 280px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 6px solid #ea7908;
-  box-shadow: 0 0 40px rgba(242, 192, 92, 0.8);
-}
-*/
 
 .perfil-avatar img {
   width: 100%;

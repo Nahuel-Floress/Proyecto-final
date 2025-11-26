@@ -1,5 +1,4 @@
 <?php
-// library.php - muestra la biblioteca del usuario (solo sus juegos)
 require_once "includes/config.php";
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -7,19 +6,17 @@ if (session_status() === PHP_SESSION_NONE) {
 }
 
 if (!isset($_SESSION['IDusuario']) || empty($_SESSION['IDusuario'])) {
-    echo "<script>window.location.href='login.php';</script>";
+    echo "<script>window.location.href='views/login.php';</script>";
     exit;
 }
 
 $IDusuario = intval($_SESSION['IDusuario']);
 
-// Validar conexión
 if (!isset($conex) || !($conex instanceof mysqli)) {
     echo "<!doctype html><html><body><h2>Error: Conexión a la base de datos no encontrada.</h2></body></html>";
     exit;
 }
 
-// Eliminación (POST)
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     $idBiblioteca = intval($_POST['delete']);
     $stmt = $conex->prepare("DELETE FROM biblioteca WHERE idBiblioteca = ? AND IDusuario = ?");
@@ -32,7 +29,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete'])) {
     exit;
 }
 
-// Consulta de la biblioteca del usuario
 $stmt = $conex->prepare("
     SELECT 
         b.idBiblioteca,

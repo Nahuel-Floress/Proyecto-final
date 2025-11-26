@@ -5,18 +5,19 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-if (!isset($_SESSION["IDusuario"])) {
-    echo "<script>alert('Debes iniciar sesión para comprar'); window.location.href='login.php';</script>";
-    exit;
-}
-
-$IDusuario = intval($_SESSION["IDusuario"]);
-
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
 
+    if (!isset($_SESSION["IDusuario"])) {
+        echo "<script>
+            alert('Debes iniciar sesión para comprar');
+            window.location.href='login.php';
+        </script>";
+        exit;
+    }
+
+    $IDusuario = intval($_SESSION["IDusuario"]);
     $idVideoJuego = intval($_POST["idVideoJuego"]);
 
-    // Verificar que el juego exista
     $stmt = $conex->prepare("SELECT nombreDelJuego FROM videojuego WHERE idVideoJuego = ? LIMIT 1");
     $stmt->bind_param("i", $idVideoJuego);
     $stmt->execute();
@@ -31,7 +32,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
     $nombreJuego = $juego["nombreDelJuego"];
     $stmt->close();
 
-    // Insertar compra SOLO para este usuario
+    $stmt = $conex->prepare("SELECT idBiblioteca FROM biblioteca WHERE IDusuario = ? AND idVideoJuego = ? LIMIT 1");
+    $stmt->bind_param("ii", $IDusuario, $idVideoJuego);
+    $stmt->execute();
+    $check = $stmt->get_result();
+    $stmt->close();
+
+    if ($check->num_rows > 0) {
+        echo "<script>
+            alert('Ya adquiriste este juego');
+            window.location.href = 'cart.php';
+        </script>";
+        exit;
+    }
+
     $stmt = $conex->prepare("INSERT INTO biblioteca (IDusuario, idVideoJuego) VALUES (?, ?)");
     $stmt->bind_param("ii", $IDusuario, $idVideoJuego);
     $stmt->execute();
@@ -39,7 +53,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
 
     echo "<script>
         alert('¡Compra realizada correctamente! Has adquirido: $nombreJuego');
-        window.location.href = 'library.php';
+        window.location.href = 'cart.php';
     </script>";
     exit;
 }
@@ -114,7 +128,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
                     <span>Minecraft Launcher</span>
                 </div>
 
-
                 <div class="price">
                     <i class="bi bi-circle price-icon"></i> $29.99
                 </div>
@@ -122,7 +135,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
 
             <form method="POST" action="cart.php">
                 <input type="hidden" name="idVideoJuego" value="1">
-                <button>Comprar</button>
+                <button type="submit" class="btn-buy">Comprar</button>
             </form>
 
         </div>
@@ -173,31 +186,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
     </div>
 
     <script src="js/cart.js" defer></script>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const cards = document.querySelectorAll('.select-edition');
-            const inputId = document.getElementById('idVideoJuego');
-            const inputName = document.getElementById('productoSeleccionado');
-
-            if (cards.length) {
-                // preselect first card
-                const first = cards[0];
-                first.classList.add('selected');
-                inputId.value = first.dataset.productId || '';
-                inputName.value = first.dataset.productName || '';
-
-                cards.forEach(card => {
-                    card.addEventListener('click', () => {
-                        cards.forEach(c => c.classList.remove('selected'));
-                        card.classList.add('selected');
-                        inputId.value = card.dataset.productId || '';
-                        inputName.value = card.dataset.productName || '';
-                    });
-                });
-            }
-        });
-    </script>
 
 </body>
 

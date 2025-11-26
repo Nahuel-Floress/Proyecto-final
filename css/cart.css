@@ -8,7 +8,11 @@ body {
 
 a {
     text-decoration: none;
-    color: var(--accent)
+    color: var(--accent);
+}
+
+.link-pg {
+    color: white;
 }
 
 .iniciar-sesion {
@@ -18,6 +22,7 @@ a {
 .iniciar-sesion:hover {
     color: #7ee000;
 }
+
 
 .store-container {
     display: flex;
@@ -228,7 +233,7 @@ a {
 }
 
 .price-icon {
-    color: #3fbf2f;       
+    color: #3fbf2f;
     font-size: 14px;
 }
 

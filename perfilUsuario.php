@@ -1,5 +1,5 @@
 <?php
-// perfil controlador
+
 require_once "includes/config.php";
 
 if (session_status() === PHP_SESSION_NONE) {
@@ -58,8 +58,7 @@ if (isset($_POST['guardarConfiguracion'])) {
     }
 }
 
-// obtener foto perfil
-$fotoPerfil = "img/avatar.png";
+$fotoPerfil = "img/perfil-default.jpg";
 $stmt = $conex->prepare("SELECT fotoDePerfil FROM usuario WHERE IDusuario = ? LIMIT 1");
 if ($stmt) {
     $stmt->bind_param("i", $IDusuario);
