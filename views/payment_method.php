@@ -5,6 +5,13 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+if (!isset($_SESSION['IDusuario']) || empty($_SESSION['IDusuario'])) {
+    echo "<script>window.location.href='login.php';</script>";
+    exit;
+}
+
+$IDusuario = intval($_SESSION['IDusuario']);
+
 $priceMap = [
     1 => 39.99,
     2 => 29.99
@@ -31,6 +38,7 @@ if (!empty($_SESSION['cart']) && is_array($_SESSION['cart'])) {
                 $total += $precio;
 
                 $carritoJuegos[] = [
+                    "id" => $idJuego,
                     "nombre" => $juego["nombreDelJuego"],
                     "precio" => $precio
                 ];
@@ -38,6 +46,38 @@ if (!empty($_SESSION['cart']) && is_array($_SESSION['cart'])) {
         }
     }
 }
+
+function guardarEnBiblioteca($conex, $IDusuario, $carritoJuegos)
+{
+    foreach ($carritoJuegos as $juego) {
+        $idJuego = intval($juego['id']);
+
+        $check = $conex->prepare("SELECT idBiblioteca FROM biblioteca WHERE IDusuario=? AND idVideoJuego=? LIMIT 1");
+        $check->bind_param("ii", $IDusuario, $idJuego);
+        $check->execute();
+        $result = $check->get_result();
+
+        if ($result->num_rows == 0) {
+            $insert = $conex->prepare("INSERT INTO biblioteca (IDusuario, idVideoJuego) VALUES (?, ?)");
+            $insert->bind_param("ii", $IDusuario, $idJuego);
+            $insert->execute();
+        }
+    }
+}
+
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['wallet'])) {
+
+    guardarEnBiblioteca($conex, $IDusuario, $carritoJuegos);
+
+    unset($_SESSION['cart']);
+
+    echo "<script>
+        alert('Compra exitosa, que tenga un buen día.');
+        window.location.href='succes_payment.php';
+    </script>";
+    exit;
+}
+
 ?>
 
 <link rel="stylesheet" href="css/payment_method.css">
@@ -55,10 +95,13 @@ if (!empty($_SESSION['cart']) && is_array($_SESSION['cart'])) {
 
         <div id="paypal-button-container"></div>
 
-        <a href="#" id="btn-simulado" class="btn-mercadolibre payment-option" style="text-decoration:none">
-            <img src="img/billetera.png" alt="8bit">
-            <span>Pagar con billetera Minecraft</span>
-        </a>
+        <form method="POST">
+            <input type="hidden" name="wallet" value="1">
+            <button type="submit" class="btn-mercadolibre payment-option" style="text-decoration:none">
+                <img src="img/billetera.png" alt="8bit">
+                <span>Pagar con billetera Minecraft</span>
+            </button>
+        </form>
 
         <hr>
 
@@ -66,23 +109,7 @@ if (!empty($_SESSION['cart']) && is_array($_SESSION['cart'])) {
     </div>
 </div>
 
-
 <script>
-    document.getElementById('btn-simulado').addEventListener('click', function (e) {
-        e.preventDefault();
-
-        if (!confirm("Confirmar compra con billetera Minecraft")) return;
-
-        fetch('empty_cart.php')
-            .then(res => res.text())
-            .then(res => {
-                window.location.href = "succes_payment.php";
-            })
-            .catch(err => {
-                console.error(err);
-                window.location.href = "succes_payment.php";
-            });
-    });
 
     paypal.Buttons({
         createOrder: (data, actions) => {
@@ -97,10 +124,13 @@ if (!empty($_SESSION['cart']) && is_array($_SESSION['cart'])) {
 
                 alert("Pago exitoso con PayPal");
 
-                // Vaciar carrito
                 fetch('empty_cart.php')
-                    .then(() => window.location.href = "succes_payment.php");
+                    .then(() => {
+                        alert('Compra exitosa, que tenga un buen día.');
+                        window.location.href = "succes_payment.php";
+                    });
             });
         }
     }).render('#paypal-button-container');
+
 </script>

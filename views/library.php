@@ -80,7 +80,6 @@ if ($stmt) {
         <?php if (empty($library)): ?>
             <div class="empty">
                 <p>No hay juegos en tu biblioteca aún.</p>
-                <a href="home.php" class="btn-ghost">Ir a la tienda</a>
             </div>
         <?php else: ?>
             <section class="grid">
@@ -104,7 +103,7 @@ if ($stmt) {
                             <form method="POST" class="delete-form" onsubmit="return confirm('¿Eliminar este juego?');">
                                 <input type="hidden" name="delete" value="<?= $idBib ?>">
                                 <button class="btn delete big" type="submit">
-                                    <i class="bi bi-trash"></i> Eliminar
+                                    Eliminar
                                 </button>
                             </form>
                         </div>

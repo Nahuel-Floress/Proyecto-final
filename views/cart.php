@@ -10,29 +10,55 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
     if (!isset($_SESSION["IDusuario"])) {
         echo "<script>
             alert('Debes iniciar sesión para continuar');
-            window.location.href='views/login.php';
+            window.location.href = window.location.pathname;
         </script>";
         exit;
     }
 
+    $idUsuario = intval($_SESSION["IDusuario"]);
     $idVideoJuego = intval($_POST["idVideoJuego"]);
+
+    $stmt = $conex->prepare("
+        SELECT idVideoJuego 
+        FROM biblioteca 
+        WHERE IDusuario = ? AND idVideoJuego = ?
+        LIMIT 1
+    ");
+    $stmt->bind_param("ii", $idUsuario, $idVideoJuego);
+    $stmt->execute();
+    $stmt->bind_result($yaComprado);
+    $stmt->fetch();
+    $stmt->close();
+
+    if ($yaComprado) {
+        echo "<script>
+            alert('Ya adqueriste este producto.');
+            window.location.href = window.location.pathname;
+        </script>";
+        exit;
+    }
 
     if (!isset($_SESSION['cart'])) {
         $_SESSION['cart'] = [];
     }
 
-    if (!in_array($idVideoJuego, $_SESSION['cart'])) {
-        $_SESSION['cart'][] = $idVideoJuego;
+    if (in_array($idVideoJuego, $_SESSION['cart'])) {
+        echo "<script>
+            alert('Este juego ya está en tu carrito.');
+            window.location.href = window.location.pathname;
+        </script>";
+        exit;
     }
 
+    $_SESSION['cart'][] = $idVideoJuego;
+
     echo "<script>
-        alert('El producto fue agregado al carrito.');
-        window.location.href = 'carrito.php';
+        alert('Juego agregado al carrito correctamente.');
+        window.location.href = window.location.pathname;
     </script>";
     exit;
 }
 ?>
-
 <!doctype html>
 <html lang="es">
 
@@ -107,7 +133,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["idVideoJuego"])) {
                 </div>
             </div>
 
-            <form method="POST" action="cart.php">
+            <form method="POST" action="">
                 <input type="hidden" name="idVideoJuego" value="1">
                 <button type="submit" class="btn-buy">Agregar al carrito</button>
             </form>

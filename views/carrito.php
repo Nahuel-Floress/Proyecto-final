@@ -6,33 +6,22 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-// Verificamos conexión
 if (!isset($conex) || !$conex) {
     die("Error: Conexión a la base de datos no establecida.");
 }
-
-/*
-  PRECIOS EXACTOS SEGÚN cart.php
-  idVideoJuego => precio
-*/
 $priceMap = [
-    1 => 39.99,   // Deluxe PC Collection (cart.php)
-    2 => 29.99    // Standard PC Edition (si más adelante lo usas)
+    1 => 39.99,  
+    2 => 29.99    
 ];
 
 $total = 0.00;
 
-// Variables para feedback tras eliminación
 $deletedId = null;
 $deletedName = null;
 
-/* ===========================
-   ELIMINAR ITEM DEL CARRITO
-   =========================== */
 if (isset($_GET['remove'])) {
     $idJuego = (int) $_GET['remove'];
 
-    // Intentamos obtener nombre antes de eliminar para mostrar feedback
     if (isset($_SESSION['cart']) && is_array($_SESSION['cart']) && in_array($idJuego, array_map('intval', $_SESSION['cart']), true)) {
         $stmtName = $conex->prepare("SELECT nombreDelJuego FROM videojuego WHERE idVideoJuego = ? LIMIT 1");
         if ($stmtName) {
@@ -46,11 +35,9 @@ if (isset($_GET['remove'])) {
             }
         }
 
-        // Eliminamos del carrito en sesión
         $_SESSION['cart'] = array_filter($_SESSION['cart'], fn($id) => (int) $id !== $idJuego);
         $_SESSION['cart'] = array_values($_SESSION['cart']);
         $deletedId = $idJuego;
-        // no usamos header() ni exit; simplemente renderizamos la página actualizada
     }
 }
 
@@ -82,7 +69,6 @@ if (isset($_GET['remove'])) {
                     foreach ($_SESSION['cart'] as $idJuego):
                         $idJuego = (int) $idJuego;
 
-                        // Traer solo el nombre desde la base
                         $stmt = $conex->prepare("
                             SELECT nombreDelJuego 
                             FROM videojuego 
@@ -101,7 +87,6 @@ if (isset($_GET['remove'])) {
                         if (!$juego)
                             continue;
 
-                        // Precio basado en cart.php
                         $precio = $priceMap[$idJuego] ?? 0.00;
                         $total += $precio;
                         ?>
@@ -139,11 +124,10 @@ if (isset($_GET['remove'])) {
         document.addEventListener('DOMContentLoaded', () => {
             const cestaItems = document.getElementById('cesta-items');
 
-            // Si no existe el contenedor (carrito vacío) no hacemos nada
             if (!cestaItems) return;
 
             cestaItems.addEventListener('click', e => {
-                // Buscamos que el click sea en un botón eliminar (o dentro de él)
+
                 const btn = e.target.closest('.btn-eliminar');
                 if (!btn) return;
 
@@ -153,24 +137,19 @@ if (isset($_GET['remove'])) {
                 const idJuego = item.dataset?.id;
                 if (!idJuego) return;
 
-                // Confirmación antes de eliminar
                 const nombre = item.querySelector('.nombre')?.textContent || 'este producto';
                 const confirma = confirm(`¿Estás seguro que querés eliminar "${nombre}" del carrito?`);
                 if (!confirma) return;
 
-                // Redirigimos para eliminar en el servidor (se procesará y la página se renderizará sin header())
                 window.location.href = 'carrito.php?remove=' + encodeURIComponent(idJuego);
             });
         });
 
-        // Si el servidor eliminó un item, mostramos un alert opcional de feedback
         <?php if ($deletedId !== null): ?>
                 (function () {
                     const name = <?= json_encode($deletedName ?? "Producto") ?>;
-                    // Mensaje breve de confirmación
                     alert(`"${name}" fue eliminado del carrito.`);
-                    // opcional: podríamos hacer scroll al top o otra acción
-                    window.history.replaceState({}, document.title, "carrito.php"); // limpiar querystring del navegador
+                    window.history.replaceState({}, document.title, "carrito.php");
                 })();
         <?php endif; ?>
     </script>

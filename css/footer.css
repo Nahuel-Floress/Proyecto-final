@@ -1,3 +1,18 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+main, .contenido, .wrapper, .container-principal {
+    flex: 1;
+}
+
 .footer-minecraft {
     background-color: #323130;
     color: #e4e4e4;
@@ -5,6 +20,7 @@
     font-family: "Poppins", sans-serif;
     font-size: 0.95rem;
     margin-top: 72px;
+    margin-bottom: 0;
 }
 
 .footer-inner {

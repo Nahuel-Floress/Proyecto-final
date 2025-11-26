@@ -1,5 +1,5 @@
 <?php
-/* include 'verifUser.php'; */
+require_once "verifUser.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">

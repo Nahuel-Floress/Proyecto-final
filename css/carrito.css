@@ -9,6 +9,23 @@ body {
     color: #fff;
 }
 
+a {
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.link-pg {
+  color: white;
+}
+
+.iniciar-sesion {
+  color: white;
+}
+
+.iniciar-sesion:hover {
+  color: #7ee000;
+}
+
 .carrito-container {
     display: flex;
     justify-content: center;
